@@ -1,14 +1,14 @@
 .button {
-    background: none;
-    border: none;
+    background: var(--button-background, none);
+    border: var(--button-border, none);
     color: var(--button-color);
-    display: inline-flex;
-    font-family: var(--button-font-family);
-    font-size: var(--button-font-size);
-    margin: 0;
-    outline: none;
-    text-decoration: none;
-    text-transform: var(--button-text-transform);
+    display: var(--button-display, inline-flex);
+    font-family: var(--button-font-family, Arial, Helvetica, sans-serif);
+    font-size: var(--button-font-size, 1rem);
+    margin: var(--button-margin, 0);
+    outline: var(--button-outline, none);
+    text-decoration: var(--button-text-decoration, none);
+    text-transform: var(--button-text-transform, none);
 }
 
 .button:hover {
@@ -21,7 +21,7 @@
 }
 
 .primary:hover {
-    background: var(--button-primary-background-hover);
+    background: var(--button-primary-background-hover, var(--button-primary-background));
 }
 
 .small {

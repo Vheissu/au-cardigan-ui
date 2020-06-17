@@ -6,7 +6,7 @@ import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import postcssUrl from 'postcss-url';
 import html from "rollup-plugin-html";
-import copy from 'rollup-plugin-copy';
+// import copy from 'rollup-plugin-copy';
 
 export default {
     input: 'src/cardigan.ts',
@@ -25,15 +25,12 @@ export default {
     plugins: [
         typescript({ typescript: require('typescript') }),
         postcss({
+            inject: false,
+            extract: false,
             plugins: [
                 autoprefixer(),
                 postcssUrl({ url: 'inline', encodeType: 'base64' }),
                 cssnano()
-            ]
-        }),
-        copy({
-            targets: [
-                { src: ['src/components/*.json'], dest: 'dist/components' },
             ]
         }),
         html(),

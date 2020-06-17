@@ -1,13 +1,15 @@
 import { bindable, ICustomElementViewModel, customElement } from '@aurelia/runtime';
 import { shadowCSS, cssModules } from '@aurelia/runtime-html';
 
+import SharedStyles from '../variables.css';
+
 import styles from './au-button.css';
 import template from './au-button.html';
 @customElement({
     name: 'au-button',
     template,
     dependencies: [
-        shadowCSS(styles)
+        shadowCSS(SharedStyles, styles)
     ],
     shadowOptions: { mode: 'open' }
 })
