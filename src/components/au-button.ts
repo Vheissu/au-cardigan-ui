@@ -24,8 +24,6 @@ export class AuButtonCustomElement implements ICustomElementViewModel<Element> {
     @bindable public content: string = '';
     @bindable public callback: any = () => ``;
 
-    private styles = styles;
-
     public innerCallback() {
         if (this.callback) {
             this.callback();
