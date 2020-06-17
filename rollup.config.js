@@ -29,6 +29,7 @@ export default {
                 camelCase: true,
                 generateScopedName: '[name]__[local]___[hash:base64:5]'
             },
+            extract: true,
             plugins: [
                 autoprefixer(),
                 postcssUrl({ url: 'inline', encodeType: 'base64' }),
@@ -37,7 +38,7 @@ export default {
         }),
         copy({
             targets: [
-                { src: ['src/components/*.css', 'src/components/*.json'], dest: 'dist' },
+                { src: ['src/components/*.css', 'src/components/*.json'], dest: 'dist/components' },
             ]
         }),
         html(),
