@@ -1,3 +1,6 @@
 <div class="image">
-    <img src.bind="src" loading.bind="loading" importance.bind="importance">
+    <img if.bind="fit != 'cover' || fit != 'cover'" src.bind="src" loading.bind="loading" importance.bind="importance" alt.bind="alt" onerror.trigger="handleError()" onload.trigger="handleLoad()" sizes.bind="sizes" srcset.bind="srcSet">
+    <div class="image-bg" aria-label.bind="alt" style="background-color: ${color}; background-image: url('${src}');" role="img" else>
+
+    </div>
 </div>
