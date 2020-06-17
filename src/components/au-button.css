@@ -1,0 +1,41 @@
+.button {
+    background: none;
+    border: none;
+    color: var(--button-color);
+    display: inline-flex;
+    font-family: var(--button-font-family);
+    font-size: var(--button-font-size);
+    margin: 0;
+    outline: none;
+    text-decoration: none;
+    text-transform: var(--button-text-transform);
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.primary {
+    background: var(--button-primary-background);
+    color: var(--button-primary-color);
+}
+
+.primary:hover {
+    background: var(--button-primary-background-hover);
+}
+
+.small {
+    padding: var(--button-small-padding);
+}
+
+.medium {
+    padding: var(--button-medium-padding);
+}
+
+.large {
+    padding: var(--button-large-padding);
+}
+
+.xlarge {
+    padding: var(--button-xlarge-padding);
+}
