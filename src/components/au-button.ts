@@ -9,7 +9,8 @@ import template from './au-button.html';
     template,
     dependencies: [
         cssModules(styles)
-    ]
+    ],
+    shadowOptions: { mode: 'open' }
 })
 export class AuButtonCustomElement implements ICustomElementViewModel<Element> {
     @bindable public disabled: boolean = false;

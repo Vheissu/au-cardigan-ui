@@ -1,0 +1,11 @@
+:root {
+    --button-color: #333;
+    --button-font-family: Arial, Helvetica, sans-serif;
+    --button-font-size: 1rem;
+    --button-text-transform: none;
+    --button-primary-background: #3C90E7;
+    --button-primary-color: #FFF;
+    --button-small-padding: 0.5rem 0.7rem;
+    --button-medium-padding: 0.8rem 1rem;
+    --button-large-padding: 1rem 1.2rem;
+}
