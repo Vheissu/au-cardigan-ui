@@ -1,11 +1,15 @@
 import { bindable, ICustomElementViewModel, customElement } from '@aurelia/runtime';
+import { cssModules } from '@aurelia/runtime-html';
 
 import styles from './au-button.css';
 import template from './au-button.html';
 
 @customElement({
     name: 'au-button',
-    template
+    template,
+    dependencies: [
+        cssModules(styles)
+    ]
 })
 export class AuButtonCustomElement implements ICustomElementViewModel<Element> {
     @bindable public disabled: boolean = false;
@@ -15,6 +19,7 @@ export class AuButtonCustomElement implements ICustomElementViewModel<Element> {
     @bindable public size = 'medium';
     @bindable public title: string = '';
     @bindable public type: string = 'button';
+    @bindable public content: string = '';
     @bindable public callback: any = () => ``;
 
     private styles = styles;

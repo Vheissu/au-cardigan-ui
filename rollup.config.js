@@ -29,7 +29,6 @@ export default {
                 camelCase: true,
                 generateScopedName: '[name]__[local]___[hash:base64:5]'
             },
-            extract: true,
             plugins: [
                 autoprefixer(),
                 postcssUrl({ url: 'inline', encodeType: 'base64' }),

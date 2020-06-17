@@ -14,7 +14,17 @@
   resolved "https://registry.yarnpkg.com/@aurelia/metadata/-/metadata-0.8.0-dev.202006120521.tgz#049e1bc82b65b44f87eb8071b063170bbc227a94"
   integrity sha512-UXGfbqp4gGu8TFgg9li0gfnhfB7hhdmHdu/r0lUzX8u27nH+YEWw0/BLrgT8eicRP5X3348MIDlJk2EMA6uGOw==
 
-"@aurelia/runtime@dev":
+"@aurelia/runtime-html@dev":
+  version "0.8.0-dev.202006120521"
+  resolved "https://registry.yarnpkg.com/@aurelia/runtime-html/-/runtime-html-0.8.0-dev.202006120521.tgz#28b08733f82878dcd0a8742108d615bfd603785b"
+  integrity sha512-i9VWlTxDtz+YjH9Eo2hRXDjA9GsvxrMhC6zaOihylCYmUxwtBdTWW5qdmAXdPCsXroEmJkm2wzoNPBpsxUHYtA==
+  dependencies:
+    "@aurelia/kernel" "^0.8.0-dev.202006120521"
+    "@aurelia/metadata" "^0.8.0-dev.202006120521"
+    "@aurelia/runtime" "^0.8.0-dev.202006120521"
+    "@aurelia/scheduler" "^0.8.0-dev.202006120521"
+
+"@aurelia/runtime@^0.8.0-dev.202006120521", "@aurelia/runtime@dev":
   version "0.8.0-dev.202006120521"
   resolved "https://registry.yarnpkg.com/@aurelia/runtime/-/runtime-0.8.0-dev.202006120521.tgz#954e6d5929cf8a504caec78411aaa2c96f4906cf"
   integrity sha512-sd+GNVZq32+yfTxWeYAbYzqCQ6Xt7RxgKNjsrXO/F40J9ZvH9Ue0kzTnrcjr+N4YFHuuC08TISLkP+VvPUykSA==
