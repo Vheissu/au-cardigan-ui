@@ -21,3 +21,7 @@ Aurelia
   .app(App)
   .start();
 ```
+
+## Credits
+
+Inspiration for this library was taken from [Gestalt](https://github.com/pinterest/gestalt) by Pinterest, including attribute names and how markup for some of their React components were created.
