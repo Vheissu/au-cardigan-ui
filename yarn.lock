@@ -1303,10 +1303,10 @@ atob@^2.1.2:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-au-cardigan@^0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/au-cardigan/-/au-cardigan-0.0.8.tgz#4d45f03be11be2514235bcdcda6ce73da5010dfc"
-  integrity sha512-x/MOe6ZgzEO9TUuW+rAz1gb0SXWKJv776YUCjX9NWW1rj0TK0sY5lft9UqGguhq5xExBG/akOVGRc8UtCSjSaA==
+au-cardigan@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/au-cardigan/-/au-cardigan-0.0.9.tgz#98c721d65e39a8454523e20dba337a036891f4f4"
+  integrity sha512-Rw/0G5wZRoy6YRHYaC9z2Bgy7flzrms6iIwl5maxpgH40wWqyktK8sPsWZjRxyfzRKh9L4PzIPnx2QAj1qIs/Q==
   dependencies:
     "@aurelia/kernel" dev
     "@aurelia/runtime" dev
