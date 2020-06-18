@@ -1,55 +1,55 @@
 .container {
-    align-items: var(--modal-container-align-items, center);
-    box-sizing: var(--modal-container-box-sizing, border-box);
-    display: var(--modal-container-display, flex);
-    height: var(--modal-container-height, 100%);
-    justify-content: var(--modal-container-justify-content, center);
-    left: var(--modal-container-left, 0);
-    position: var(--modal-container-position, fixed);
-    top: var(--modal-container-top, 0);
-    width: var(--modal-container-width, 100%);
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 .backdrop {
-    cursor: var(--modal-backdrop-cursor, zoom-out);
-    background: var(--modal-backdrop-background, rgba(0, 0, 0, 0.4));
-    height: var(--modal-backdrop-height, 100%);
-    left: var(--modal-backdrop-left, 0);
-    opacity: var(--modal-backdrop-opacity, 0.9);
-    overflow-y: var(--modal-backdrop-overflow-y, scroll);
-    position: var(--modal-backdrop-position, absolute);
-    top: var(--modal-backdrop-top, 0);
-    width: var(--modal-backdrop-width, 100%);
+    cursor: zoom-out;
+    background: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    left: 0;
+    opacity: 0.9;
+    overflow-y: scroll;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
 .wrapper {
-    background-color: var(--modal-wrapper-background-color, #FFF);
-    border-radius: var(--modal-wrapper-border-radius, 32px);
-    display: var(--modal-wrapper-display, flex);
-    margin-left: var(--modal-wrapper-margin-left, 16px);
-    margin-right: var(--modal-wrapper-margin-right, 16px);
-    max-height: var(--modal-wrapper-max-height, calc(100vh - 32px));
-    overflow: var(--modal-wrapper-overflow, hidden);
-    position: var(--modal-wrapper-position, relative);
+    background-color: #FFF;
+    border-radius: 32px;
+    display: flex;
+    margin-left: 16px;
+    margin-right: 16px;
+    max-height: calc(100vh - 32px);
+    overflow: hidden;
+    position: relative;
 }
 
 .wrapper:focus {
-    outline: var(--modal-wrapper-focus-outline, none);
+    outline: none;
 }
 
 .modal-content {
-    display: var(--modal-content-display, flex);
-    flex: var(--modal-content-flex, 1 1 auto);
-    flex-direction: var(--modal-content-flex-direction, column);
-    min-height: var(--modal-content-min-height, 0);
-    min-width: var(--modal-content-min-width, 0);
-    position: var(--modal-content-position, relative);
-    width: var(--modal-content-width, 100%);
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-height: 0;
+    min-width: 0;
+    position: relative;
+    width: 100%;
 }
 
 .modal-content-inner {
-    flex: var(--modal-content-inner-flex, 1 1 auto);
-    min-height: var(--modal-content-inner-min-height, 0);
-    min-width: var(--modal-content-inner-min-width, 0);
-    overflow: var(--modal-content-inner-overflow, auto);
+    flex: 1 1 auto;
+    min-height: 0;
+    min-width: 0;
+    overflow: auto;
 }

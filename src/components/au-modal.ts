@@ -30,7 +30,6 @@ export class AuModalCustomElement implements ICustomElementViewModel<Element> {
     @bindable private label: string = '';
     @bindable private clickClose: boolean = true;
     @bindable private onClose = (event?: MouseEvent) => ``;
-    @bindable private heading: string = '';
     @bindable private role: ModalRole = 'dialog';
 
     private width;

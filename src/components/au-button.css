@@ -1,18 +1,18 @@
 .button {
-    background: var(--button-background, none);
-    border: var(--button-border, none);
-    color: var(--button-color, transparent);
-    display: var(--button-display, inline-flex);
-    font-family: var(--button-font-family, Arial, Helvetica, sans-serif);
-    font-size: var(--button-font-size, 1rem);
-    margin: var(--button-margin, 0);
-    outline: var(--button-outline, none);
-    text-decoration: var(--button-text-decoration, none);
-    text-transform: var(--button-text-transform, none);
+    background: none;
+    border: none;
+    color: transparent;
+    display: inline-flex;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    margin: 0;
+    outline: none;
+    text-decoration: none;
+    text-transform: none;
 }
 
 .button:hover {
-    cursor: var(--button-hover-cursor, pointer);
+    cursor: pointer;
 }
 
 .primary {
