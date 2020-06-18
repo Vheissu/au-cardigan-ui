@@ -1,30 +1,26 @@
 .img {
-    height: auto;
-    max-width: 100%;
+    height: var(--image-height, auto);
+    max-width: var(--image-max-width, 100%);
 }
 
 img[alt] {
-    color: transparent;
-}
-
-.image {
-    overflow: hidden;
+    color: var(--image-with-alt-color, transparent);
 }
 
 .scaled-img {
-    background-position: center center;
-    background-repeat: no-repeat;
-    height: 100%;
-    position: relative;
-    width: 100%;
+    background-position: var(--scaled-img-background-position, center center);
+    background-repeat: var(--scaled-img-background-repeat, no-repeat);
+    height: var(--scaled-img-height, 100%);
+    position: var(--scaled-img-position, relative);
+    width: var(--scaled-img-width, 100%);
 }
 
 .contain {
     composes: scaled-img;
-    background-size: contain;
+    background-size: var(--img-contain-background-size, contain);
 }
 
 .cover {
     composes: scaled-img;
-    background-size: cover;
+    background-size: var(--img-cover-background-size, cover);
 }
