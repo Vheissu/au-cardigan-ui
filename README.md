@@ -1,39 +1,37 @@
-# au-cardigan-ui
-A robust set of UI components for Aurelia 2 applications.
+# cardigan-demo
 
-## Installation
+This project is bootstrapped by [aurelia/new](https://github.com/aurelia/new).
 
+## Start dev web server
+
+    npm start
+
+## Build the app in production mode
+
+    npm run build
+
+It builds all files to dist folder. To deploy to production server, copy all the `dist/*` files to production root folder.
+
+For example
 ```
-yarn add au-cardigan
+dist/index.html
+dist/foo.12345.js
 ```
-
-## Usage
-
-Import the configuration object and register it with Aurelia during app boostrap.
-
+Copy to production root folder
 ```
-import { CardiganConfiguration } from 'au-cardigan';
-
-Aurelia
-  .register(
-    CardiganConfiguration,
-  )
-  .app(App)
-  .start(
-```
-
-# Styling
-
-Styling components uses [CSS Shadow Parts](https://meowni.ca/posts/part-theme-explainer/) which allow you complete stylistic control over each component used. Each component in this library exposes a part name which you can then reference in your CSS styles.
-
-For example, to style a primary button in your app you can reference the element and the primary style part like this:
-
-```css
-au-button::part(primary) {
-    background: blue;
-}
+root_folder/index.html
+root_folder/foo.12345.js
 ```
 
-## Credits
+## Unit Tests
 
-Inspiration for this library was taken from [Gestalt](https://github.com/pinterest/gestalt) by Pinterest, including attribute names and how markup for some of their React components were created.
+    npm run test
+
+Run unit tests in watch mode.
+
+    npm run test:watch
+
+
+## Analyze webpack bundle
+
+    npm run analyze
