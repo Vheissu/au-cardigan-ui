@@ -1,0 +1,11 @@
+<div class="container" aria-label.bind="label" role.bind="role">
+    <div class="backdrop" click.trigger="handleBackdropClick($event)"></div>
+    <div class="wrapper" tabIndex="-1" style="width: ${width};">
+        <div class="modal-content">
+            <h1>${heading}</h1>
+            <div class="modal-content-inner">
+                <slot></slot>
+            </div>
+        </div>
+    </div>
+</div>
