@@ -15,7 +15,7 @@ import template from './au-button.html';
 })
 export class AuButtonCustomElement implements ICustomElementViewModel<Element> {
     @bindable public disabled: boolean = false;
-    @bindable public color = 'primary';
+    @bindable public color = '';
     @bindable public icon = null;
     @bindable public iconSize = '1rem';
     @bindable public size = 'medium';
