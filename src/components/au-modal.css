@@ -1,3 +1,9 @@
+@import "./variables.css";
+:host {
+    --modal-backdrop-background: rgba(0, 0, 0, 0.4);
+    --modal-wrapper-background: var(--color-white);
+}
+
 .container {
     align-items: center;
     box-sizing: border-box;
@@ -12,7 +18,7 @@
 
 .backdrop {
     cursor: zoom-out;
-    background: rgba(0, 0, 0, 0.4);
+    background: var(--modal-backdrop-background);
     height: 100%;
     left: 0;
     opacity: 0.9;
@@ -23,7 +29,7 @@
 }
 
 .wrapper {
-    background-color: #FFF;
+    background-color: var(--modal-wrapper-background);
     border-radius: 32px;
     display: flex;
     margin-left: 16px;
