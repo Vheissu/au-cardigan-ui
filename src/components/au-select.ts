@@ -14,7 +14,7 @@ import template from './au-select.html';
     shadowOptions: { mode: 'open' }
 })
 export class AuSelectCustomElement implements ICustomElementViewModel<Element> {
-    @bindable public size: 'small' | 'medium' | 'largeg' = 'medium';
+    @bindable public size: 'small' | 'medium' | 'large' = 'medium';
     @bindable public disabled: boolean = false;
     @bindable({ mode: BindingMode.twoWay }) public value: unknown;
 }
