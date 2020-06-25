@@ -50,7 +50,7 @@
 }
 
 .primary:hover {
-    background: var(--button-primary-background-hover, var(--button-primary-background));
+    background: var(--button-primary-background-hover, var(--color-blue-alt));
 }
 
 .secondary {
