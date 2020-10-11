@@ -4,7 +4,7 @@ A robust set of UI components for Aurelia 2 applications.
 ## Installation
 
 ```
-yarn add au-cardigan
+npm install au-cardigan
 ```
 
 ## Usage
