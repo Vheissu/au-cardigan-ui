@@ -1,4 +1,4 @@
-import { bindable, ICustomElementViewModel, customElement, BindingMode } from '@aurelia/runtime';
+import { bindable, ICustomElementViewModel, customElement, BindingMode } from '@aurelia/runtime-html';
 import { shadowCSS, cssModules } from '@aurelia/runtime-html';
 
 import SharedStyles from '../variables.css';
@@ -13,7 +13,7 @@ import template from './au-heading.html';
     ],
     shadowOptions: { mode: 'open' }
 })
-export class AuHeadingCustomElement implements ICustomElementViewModel<Element> {
+export class AuHeadingCustomElement implements ICustomElementViewModel {
     @bindable public size: 'small' | 'medium' | 'large' = 'medium';
     @bindable public level: '1' | '2' | '3' | '4' | '5' | '6' = '1';
     @bindable public color: 'white' | 'light' | 'dark' | 'primary' | 'success' | 'info' | 'error' | 'bright' | 'skyBlue' | 'purple' | 'blueAlt' = 'dark';

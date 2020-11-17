@@ -1,4 +1,4 @@
-import { bindable, ICustomElementViewModel, customElement, customAttribute } from '@aurelia/runtime';
+import { bindable, ICustomElementViewModel, customElement } from '@aurelia/runtime-html';
 import { shadowCSS } from '@aurelia/runtime-html';
 
 import SharedStyles from '../variables.css';
@@ -13,7 +13,7 @@ import template from './au-image.html';
     ],
     shadowOptions: { mode: 'open' }
 })
-export class AuImageCustomElement implements ICustomElementViewModel<Element> {
+export class AuImageCustomElement implements ICustomElementViewModel {
     @bindable public alt: string = '';
     @bindable public color: string = 'transparent';
     @bindable public naturalHeight: string = '';

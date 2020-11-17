@@ -1,4 +1,4 @@
-import { bindable, ICustomElementViewModel, customElement } from '@aurelia/runtime';
+import { bindable, ICustomElementViewModel, customElement } from '@aurelia/runtime-html';
 import { shadowCSS } from '@aurelia/runtime-html';
 
 import SharedStyles from '../variables.css';
@@ -25,7 +25,7 @@ const ESCAPE_KEY_CODE = 27;
     ],
     shadowOptions: { mode: 'open' }
 })
-export class AuModalCustomElement implements ICustomElementViewModel<Element> {
+export class AuModalCustomElement implements ICustomElementViewModel {
     @bindable private size: ModalSize = 'sm';
     @bindable private label: string = '';
     @bindable private clickClose: boolean = true;
