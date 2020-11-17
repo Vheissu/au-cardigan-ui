@@ -8,14 +8,14 @@
     },
     "license": "UNLICENSED",
     "dependencies": {
-        "au-cardigan": "^0.0.15",
-        "aurelia": "dev",
-        "bootstrap": "^4.5.0"
+        "au-cardigan": "0.0.15",
+        "aurelia": "^0.8.0-dev.202011161324",
+        "bootstrap": "^4.5.3"
     },
     "devDependencies": {
-        "@aurelia/testing": "dev",
-        "@aurelia/ts-jest": "dev",
-        "@aurelia/webpack-loader": "dev",
+        "@aurelia/testing": "^0.8.0-dev.202011161324",
+        "@aurelia/ts-jest": "^0.8.0-dev.202011161324",
+        "@aurelia/webpack-loader": "^0.8.0-dev.202011161324",
         "@types/jest": "^25.2.3",
         "@types/node": "^14.0.4",
         "@typescript-eslint/eslint-plugin": "^2.34.0",
