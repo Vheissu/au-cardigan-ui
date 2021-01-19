@@ -26,7 +26,7 @@ export class AuImageCustomElement implements ICustomElementViewModel {
     @bindable public onError: any = () => ``;
     @bindable public onLoad: any = () => ``;
 
-    afterAttach() {
+    attached() {
         if (this.fit === 'cover' || this.fit === 'contain') {
             this.loadImage();
         }

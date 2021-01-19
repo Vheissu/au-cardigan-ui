@@ -1,5 +1,6 @@
-# au-cardigan-ui
-A robust set of UI components for Aurelia 2 applications.
+# Cardigan UI
+
+A robust set of UI components for Aurelia 2.
 
 ## Installation
 
@@ -9,7 +10,7 @@ npm install au-cardigan
 
 ## Usage
 
-Import the configuration object and register it with Aurelia during app boostrap.
+Import the configuration object and register it with Aurelia during app boostrap. The following would usually go inside of `main.ts` / `main.js`.
 
 ```
 import { CardiganConfiguration } from 'au-cardigan';
@@ -22,7 +23,17 @@ Aurelia
   .start(
 ```
 
-# Styling
+## Components
+
+Cardigan features a small, but growing number of components.
+
+- `<au-button>` wraps the native `<button>` component
+- `<au-heading>` wraps the native heading elements, h1 through to h6
+- `<au-image>` wraps the native `<img>` element, but also offers support for scaling, srcSet and more
+- `<au-modal>` a lightweight modal implementation
+- `<au-select>` wraps the native select element
+
+## Styling Components
 
 Styling components uses [CSS Shadow Parts](https://meowni.ca/posts/part-theme-explainer/) which allow you complete stylistic control over each component used. Each component in this library exposes a part name which you can then reference in your CSS styles.
 
@@ -34,6 +45,10 @@ au-button::part(primary) {
 }
 ```
 
-## Credits
+Similarly, if you have added a class to your button, reference the class instead:
 
-Inspiration for this library was taken from [Gestalt](https://github.com/pinterest/gestalt) by Pinterest, including attribute names and how markup for some of their React components were created. Some styling inspiration and code was taken from [Bootstrap](https://github.com/twbs/bootstrap).
+```css
+.my-button::part(primary) {
+    background: blue;
+}
+```

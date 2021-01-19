@@ -33,17 +33,13 @@ export class AuModalCustomElement implements ICustomElementViewModel {
 
     private width;
 
-    beforeAttach() {
+    attaching() {
         this.width = typeof SIZES[this.size] !== 'undefined' ? SIZES[this.size] : this.size;
 
         window.addEventListener('keyup', this.handleKeyUp);
     }
 
-    afterAttach() {
-
-    }
-
-    beforeDetach() {
+    detaching() {
         window.removeEventListener('keyup', this.handleKeyUp);
     }
 
