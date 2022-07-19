@@ -1,4 +1,4 @@
-<div class="image" if.bind="fit != 'cover' || fit != 'cover'">
+<div class="image" if.bind="fit == 'none'">
     <img class="img" src.bind="src" loading.bind="loading" importance.bind="importance" alt.bind="alt" error.trigger="handleOnError()" load.trigger="handleOnLoad()" sizes.bind="sizes" srcset.bind="srcSet" part="img">
     <slot></slot>
 </div>
