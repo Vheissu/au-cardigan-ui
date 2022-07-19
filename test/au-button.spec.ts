@@ -31,6 +31,42 @@ describe('Button', () => {
         await tearDown();
     });
 
+    test('should set button title', async () => {
+        const { appHost, startPromise, tearDown } = await createFixture('<au-button title="Test Button">Click me</au-button>', {}, [AuButtonCustomElement]);
+
+        await startPromise;
+
+        const button = appHost.querySelector('au-button')?.shadowRoot?.querySelector('button');
+
+        expect(button?.getAttribute('title')).toEqual('Test Button');
+
+        await tearDown();
+    });
+
+    test('should set button colour', async () => {
+        const { appHost, startPromise, tearDown } = await createFixture('<au-button color="red">Click me</au-button>', {}, [AuButtonCustomElement]);
+
+        await startPromise;
+
+        const button = appHost.querySelector('au-button')?.shadowRoot?.querySelector('button');
+
+        expect(button?.classList.contains('red')).toBeTruthy();
+
+        await tearDown();
+    });
+
+    test('should set button size', async () => {
+        const { appHost, startPromise, tearDown } = await createFixture('<au-button size="medium">Click me</au-button>', {}, [AuButtonCustomElement]);
+
+        await startPromise;
+
+        const button = appHost.querySelector('au-button')?.shadowRoot?.querySelector('button');
+
+        expect(button?.classList.contains('medium')).toBeTruthy();
+
+        await tearDown();
+    });
+
     test('button clicked triggers callback', async () => {
         const { appHost, component, startPromise, tearDown } = await createFixture('<au-button callback.call="myButtonEvent()">Click me</au-button>', class App {
             myButtonEvent = jest.fn();
