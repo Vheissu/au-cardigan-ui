@@ -29,3 +29,9 @@ export async function bootstrap(template, $class, dependencies: any[] = []) {
         host.remove();
     } };
 }
+
+export async function wait(ms) {
+    return new Promise((resolve) => {
+        setTimeout(resolve, ms);
+    })
+}
