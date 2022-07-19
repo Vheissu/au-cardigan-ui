@@ -1,6 +1,5 @@
 import { AuHeadingCustomElement } from './../src/components/au-heading';
 import { createFixture } from '@aurelia/testing';
-import { useShadowDOM, ICustomElementViewModel } from '@aurelia/runtime-html';
 
 const App = class App {
     size = 'medium';
