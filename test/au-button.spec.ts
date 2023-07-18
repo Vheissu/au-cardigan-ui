@@ -68,7 +68,7 @@ describe('Button', () => {
     });
 
     test('button clicked triggers callback', async () => {
-        const { appHost, component, startPromise, tearDown } = await createFixture('<au-button callback.call="myButtonEvent()">Click me</au-button>', class App {
+        const { appHost, component, startPromise, tearDown } = await createFixture('<au-button callback.bind="() => myButtonEvent()">Click me</au-button>', class App {
             myButtonEvent = jest.fn();
         }, [AuButtonCustomElement]);
 

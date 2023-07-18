@@ -35,7 +35,7 @@ describe('Image', () => {
                 return 'imgloaded';
             }
         }
-        const { appHost, startPromise, tearDown, component } = await createFixture('<au-image src="https://picsum.photos/200/300" on-load.call="loaded()"></au-image>', viewModel, [AuImageCustomElement]);
+        const { appHost, startPromise, tearDown, component } = await createFixture('<au-image src="https://picsum.photos/200/300" on-load.bind="() => loaded()"></au-image>', viewModel, [AuImageCustomElement]);
 
         await startPromise;
 
@@ -56,7 +56,7 @@ describe('Image', () => {
                 return 'imgloaded';
             }
         }
-        const { appHost, startPromise, tearDown, component } = await createFixture('<au-image src="https://picsum.photos/200/300" fit="cover" on-load.call="loaded()"></au-image>', viewModel, [AuImageCustomElement]);
+        const { appHost, startPromise, tearDown, component } = await createFixture('<au-image src="https://picsum.photos/200/300" fit="cover" on-load.bind="() => loaded()"></au-image>', viewModel, [AuImageCustomElement]);
 
         await startPromise;
 

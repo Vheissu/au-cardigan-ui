@@ -1,6 +1,6 @@
 {
     "name": "au-cardigan",
-    "version": "0.0.21",
+    "version": "0.0.27",
     "description": "A robust set of UI components for Aurelia 2",
     "main": "dist/cardigan.js",
     "module": "dist/cardigan.es.js",
@@ -16,9 +16,9 @@
         "can:release": "npm run build && npm run test"
     },
     "devDependencies": {
-        "@aurelia/platform-browser": "^2.0.0-alpha.35",
-        "@aurelia/testing": "^2.0.0-alpha.35",
-        "@aurelia/ts-jest": "^2.0.0-alpha.35",
+        "@aurelia/platform-browser": "^2.0.0-beta.7",
+        "@aurelia/testing": "^2.0.0-beta.7",
+        "@aurelia/ts-jest": "^2.0.0-beta.7",
         "@rollup/plugin-html": "^0.2.4",
         "@types/jest": "^28.1.6",
         "autoprefixer": "^10.4.7",
@@ -39,8 +39,8 @@
         "typescript": "^4.7.4"
     },
     "dependencies": {
-        "@aurelia/kernel": "^2.0.0-alpha.35",
-        "@aurelia/runtime": "^2.0.0-alpha.35",
-        "@aurelia/runtime-html": "^2.0.0-alpha.35"
+        "@aurelia/kernel": "^2.0.0-beta.7",
+        "@aurelia/runtime": "^2.0.0-beta.7",
+        "@aurelia/runtime-html": "^2.0.0-beta.7"
     }
 }
