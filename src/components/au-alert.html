@@ -1,0 +1,4 @@
+<div if.bind="!closed" class="alert ${type}" part="alert ${type}">
+  <slot></slot>
+  <button if.bind="dismissible" class="close" part="dismiss" click.trigger="close()">&times;</button>
+</div>

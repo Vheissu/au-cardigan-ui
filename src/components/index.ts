@@ -6,6 +6,9 @@ import { AuImageCustomElement } from "./au-image";
 import { AuButtonCustomElement } from "./au-button";
 import { AuHeadingCustomElement } from "./au-heading";
 import { AuCodeCustomElement } from "./au-code";
+import { AuBadgeCustomElement } from "./au-badge";
+import { AuAlertCustomElement } from "./au-alert";
+import { AuProgressCustomElement } from "./au-progress";
 
 export const DefaultComponents: IRegistry[] = [
   AuButtonCustomElement as unknown as IRegistry,
@@ -14,4 +17,7 @@ export const DefaultComponents: IRegistry[] = [
   AuSelectCustomElement as unknown as IRegistry,
   AuHeadingCustomElement as unknown as IRegistry,
   AuCodeCustomElement as unknown as IRegistry,
+  AuBadgeCustomElement as unknown as IRegistry,
+  AuAlertCustomElement as unknown as IRegistry,
+  AuProgressCustomElement as unknown as IRegistry,
 ];

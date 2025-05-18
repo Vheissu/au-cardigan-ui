@@ -1,0 +1,23 @@
+:host {
+  display: block;
+}
+
+.progress {
+  background: var(--color-lightGrey);
+  border-radius: 0.25rem;
+  height: 0.5rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.bar {
+  background: var(--color-primary);
+  height: 100%;
+  transition: width 0.2s linear;
+  width: 0;
+}
+
+.primary { background: var(--color-primary); }
+.success { background: var(--color-success); }
+.error { background: var(--color-error); }
+.info { background: var(--color-info); }
