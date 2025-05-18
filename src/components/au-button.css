@@ -94,7 +94,7 @@
     color: var(--button-light-color);
 }
 
-.info:hover {
+.light:hover {
     background: var(--button-light-background-hover, var(--button-light-background));
 }
 
