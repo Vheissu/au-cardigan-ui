@@ -6,6 +6,7 @@ import { AuImageCustomElement } from "./au-image";
 import { AuButtonCustomElement } from "./au-button";
 import { AuHeadingCustomElement } from "./au-heading";
 import { AuCodeCustomElement } from "./au-code";
+import { AuBadgeCustomElement } from "./au-badge";
 
 export const DefaultComponents: IRegistry[] = [
   AuButtonCustomElement as unknown as IRegistry,
@@ -14,4 +15,5 @@ export const DefaultComponents: IRegistry[] = [
   AuSelectCustomElement as unknown as IRegistry,
   AuHeadingCustomElement as unknown as IRegistry,
   AuCodeCustomElement as unknown as IRegistry,
+  AuBadgeCustomElement as unknown as IRegistry,
 ];
