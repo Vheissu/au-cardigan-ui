@@ -20,7 +20,7 @@ Aurelia
     CardiganConfiguration,
   )
   .app(App)
-  .start(
+  .start();
 ```
 
 ## Components
