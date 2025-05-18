@@ -27,11 +27,12 @@ Aurelia
 
 Cardigan features a small, but growing number of components.
 
-- `<au-button>` wraps the native `<button>` component
-- `<au-heading>` wraps the native heading elements, h1 through to h6
+- `<au-button>` wraps the native `<button>` component and supports an optional click callback
+- `<au-heading>` wraps the native heading elements, h1 through to h6, validating out-of-range levels and defaulting to 1
 - `<au-image>` wraps the native `<img>` element, but also offers support for scaling, srcSet and more
 - `<au-modal>` a lightweight modal implementation
 - `<au-select>` wraps the native select element
+- `<au-code>` displays code snippets using `<pre>` or `<code>`
 
 ## Styling Components
 
