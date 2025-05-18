@@ -10,7 +10,7 @@ npm install au-cardigan
 
 ## Usage
 
-Import the configuration object and register it with Aurelia during app boostrap. The following would usually go inside of `main.ts` / `main.js`.
+Import the configuration object and register it with Aurelia during app bootstrap. The following would usually go inside of `main.ts` / `main.js`.
 
 ```
 import { CardiganConfiguration } from 'au-cardigan';
