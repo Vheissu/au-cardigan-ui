@@ -1,0 +1,4 @@
+<div if.bind="visible" class="alert ${color} ${dismissible ? 'dismissible' : ''}" part="alert ${color}">
+  <slot></slot>
+  <button if.bind="dismissible" type="button" class="close" click.trigger="dismiss()">\u00d7</button>
+</div>
