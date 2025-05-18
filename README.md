@@ -33,6 +33,9 @@ Cardigan features a small, but growing number of components.
 - `<au-modal>` a lightweight modal implementation
 - `<au-select>` wraps the native select element
 - `<au-code>` displays code snippets using `<pre>` or `<code>`
+- `<au-badge>` displays a small label that can be color coded
+- `<au-alert>` shows a contextual message with optional dismissal
+- `<au-progress>` displays progress for an operation
 
 ## Styling Components
 

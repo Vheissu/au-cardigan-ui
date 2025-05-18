@@ -1,0 +1,38 @@
+:host {
+    --alert-background: var(--color-primary);
+    --alert-color: var(--color-white);
+    --alert-padding: 0.75rem 1rem;
+    --alert-border-radius: 0.25rem;
+    display: block;
+}
+
+.alert {
+    background: var(--alert-background);
+    color: var(--alert-color);
+    padding: var(--alert-padding);
+    border-radius: var(--alert-border-radius);
+    position: relative;
+}
+
+.alert.dismissible {
+    padding-right: 2rem;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.75rem 1rem;
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.primary { background: var(--color-primary); color: var(--color-white); }
+.secondary { background: var(--color-secondary); color: var(--color-white); }
+.success { background: var(--color-success); color: var(--color-white); }
+.error { background: var(--color-error); color: var(--color-white); }
+.info { background: var(--color-info); color: var(--color-white); }
+.light { background: var(--color-light); color: var(--color-dark); }
+.dark { background: var(--color-dark); color: var(--color-white); }
