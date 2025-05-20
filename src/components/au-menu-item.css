@@ -1,0 +1,18 @@
+:host {
+  display: block;
+}
+
+.item {
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
+.item:focus {
+  outline: none;
+  background: var(--menu-item-focus-background, var(--color-lightGrey));
+}
+
+.item.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

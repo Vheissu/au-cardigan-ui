@@ -11,6 +11,10 @@ import { AuAlertCustomElement } from "./au-alert";
 import { AuProgressCustomElement } from "./au-progress";
 import { AuAvatarCustomElement } from "./au-avatar";
 import { AuTooltipCustomElement } from "./au-tooltip";
+import { AuMenuCustomElement } from "./au-menu";
+import { AuMenuItemCustomElement } from "./au-menu-item";
+import { AuMenuLabelCustomElement } from "./au-menu-label";
+import { AuDividerCustomElement } from "./au-divider";
 
 export const DefaultComponents: IRegistry[] = [
   AuButtonCustomElement as unknown as IRegistry,
@@ -24,4 +28,8 @@ export const DefaultComponents: IRegistry[] = [
   AuProgressCustomElement as unknown as IRegistry,
   AuAvatarCustomElement as unknown as IRegistry,
   AuTooltipCustomElement as unknown as IRegistry,
+  AuMenuCustomElement as unknown as IRegistry,
+  AuMenuItemCustomElement as unknown as IRegistry,
+  AuMenuLabelCustomElement as unknown as IRegistry,
+  AuDividerCustomElement as unknown as IRegistry,
 ];

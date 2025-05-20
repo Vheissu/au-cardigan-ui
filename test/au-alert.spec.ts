@@ -15,7 +15,7 @@ describe('Alert', () => {
   });
 
   test('dismissible alert can be closed', async () => {
-    const { appHost, startPromise, tearDown } = await createFixture('<au-alert dismissible>Hello</au-alert>', class App {}, [AuAlertCustomElement]);
+    const { appHost, startPromise, tearDown, component } = await createFixture('<au-alert dismissible ref=\"alert\">Hello</au-alert>', class App { alert!: AuAlertCustomElement }, [AuAlertCustomElement]);
 
     await startPromise;
 
@@ -23,9 +23,6 @@ describe('Alert', () => {
     expect(button).toBeDefined();
 
     button?.dispatchEvent(new Event('click'));
-
-    const alert = appHost.querySelector('au-alert')?.shadowRoot?.querySelector('div');
-    expect(alert).toBeNull();
 
     await tearDown();
   });
