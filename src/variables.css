@@ -1,17 +1,28 @@
 :host {
-    --color-primary: #0466C8;
-    --color-secondary: #495057;
-    --color-bright: #FF6B6B;
-    --color-purple: #A100F2;
-    --color-success: #52B788;
-    --color-error: #DC3545;
-    --color-info: #00B4D8;
-    --color-light: #F8F9FA;
-    --color-dark: #212529;
-    --color-white: #FFF;
-    --color-lightGrey: #CED4DA;
-    --color-mediumGrey: #495057;
-    --color-skyBlue: #ADE8F4;
-    --color-purple: #6610F2;
-    --color-blue-alt: #2744F2;
+    --color-primary: var(--au-cardigan-color-primary, #0466C8);
+    --color-secondary: var(--au-cardigan-color-secondary, #495057);
+    --color-bright: var(--au-cardigan-color-bright, #FF6B6B);
+    --color-purple: var(--au-cardigan-color-purple, #6610F2);
+    --color-success: var(--au-cardigan-color-success, #52B788);
+    --color-error: var(--au-cardigan-color-error, #DC3545);
+    --color-info: var(--au-cardigan-color-info, #00B4D8);
+    --color-light: var(--au-cardigan-color-light, #F8F9FA);
+    --color-dark: var(--au-cardigan-color-dark, #212529);
+    --color-white: var(--au-cardigan-color-white, #FFFFFF);
+    --color-lightGrey: var(--au-cardigan-color-lightGrey, #CED4DA);
+    --color-mediumGrey: var(--au-cardigan-color-mediumGrey, #495057);
+    --color-skyBlue: var(--au-cardigan-color-skyBlue, #ADE8F4);
+    --color-blue-alt: var(--au-cardigan-color-blueAlt, #2744F2);
+
+    --radius-small: var(--au-cardigan-radius-small, 0.25rem);
+    --radius-medium: var(--au-cardigan-radius-medium, 0.5rem);
+    --radius-large: var(--au-cardigan-radius-large, 0.75rem);
+
+    --spacing-xs: var(--au-cardigan-spacing-xs, 0.25rem);
+    --spacing-sm: var(--au-cardigan-spacing-sm, 0.5rem);
+    --spacing-md: var(--au-cardigan-spacing-md, 1rem);
+    --spacing-lg: var(--au-cardigan-spacing-lg, 1.5rem);
+
+    --font-family-base: var(--au-cardigan-font-family-base, 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+    --font-size-base: var(--au-cardigan-font-size-base, 1rem);
 }

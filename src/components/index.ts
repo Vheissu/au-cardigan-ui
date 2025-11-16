@@ -30,33 +30,42 @@ import { AuAccordionItemCustomElement } from "./au-accordion-item";
 import { AuToastCustomElement } from "./au-toast";
 import { AuToastCenterCustomElement } from "./au-toast-center";
 
-export const DefaultComponents: IRegistry[] = [
-  AuButtonCustomElement as unknown as IRegistry,
-  AuImageCustomElement as unknown as IRegistry,
-  AuModalCustomElement as unknown as IRegistry,
-  AuSelectCustomElement as unknown as IRegistry,
-  AuInputCustomElement as unknown as IRegistry,
-  AuTextareaCustomElement as unknown as IRegistry,
-  AuCheckboxCustomElement as unknown as IRegistry,
-  AuSwitchCustomElement as unknown as IRegistry,
-  AuHeadingCustomElement as unknown as IRegistry,
-  AuCodeCustomElement as unknown as IRegistry,
-  AuBadgeCustomElement as unknown as IRegistry,
-  AuAlertCustomElement as unknown as IRegistry,
-  AuProgressCustomElement as unknown as IRegistry,
-  AuAvatarCustomElement as unknown as IRegistry,
-  AuTooltipCustomElement as unknown as IRegistry,
-  AuMenuCustomElement as unknown as IRegistry,
-  AuMenuItemCustomElement as unknown as IRegistry,
-  AuMenuLabelCustomElement as unknown as IRegistry,
-  AuDividerCustomElement as unknown as IRegistry,
-  AuTabsCustomElement as unknown as IRegistry,
-  AuTabPanelCustomElement as unknown as IRegistry,
-  AuAccordionCustomElement as unknown as IRegistry,
-  AuAccordionItemCustomElement as unknown as IRegistry,
-  AuToastCustomElement as unknown as IRegistry,
-  AuToastCenterCustomElement as unknown as IRegistry,
-  AuCardCustomElement as unknown as IRegistry,
-  AuSpinnerCustomElement as unknown as IRegistry,
-  AuSkeletonCustomElement as unknown as IRegistry,
+export interface ComponentEntry {
+  name: string;
+  registry: IRegistry;
+}
+
+const entries: ComponentEntry[] = [
+  { name: 'au-button', registry: AuButtonCustomElement as unknown as IRegistry },
+  { name: 'au-image', registry: AuImageCustomElement as unknown as IRegistry },
+  { name: 'au-modal', registry: AuModalCustomElement as unknown as IRegistry },
+  { name: 'au-select', registry: AuSelectCustomElement as unknown as IRegistry },
+  { name: 'au-input', registry: AuInputCustomElement as unknown as IRegistry },
+  { name: 'au-textarea', registry: AuTextareaCustomElement as unknown as IRegistry },
+  { name: 'au-checkbox', registry: AuCheckboxCustomElement as unknown as IRegistry },
+  { name: 'au-switch', registry: AuSwitchCustomElement as unknown as IRegistry },
+  { name: 'au-heading', registry: AuHeadingCustomElement as unknown as IRegistry },
+  { name: 'au-code', registry: AuCodeCustomElement as unknown as IRegistry },
+  { name: 'au-badge', registry: AuBadgeCustomElement as unknown as IRegistry },
+  { name: 'au-alert', registry: AuAlertCustomElement as unknown as IRegistry },
+  { name: 'au-progress', registry: AuProgressCustomElement as unknown as IRegistry },
+  { name: 'au-avatar', registry: AuAvatarCustomElement as unknown as IRegistry },
+  { name: 'au-tooltip', registry: AuTooltipCustomElement as unknown as IRegistry },
+  { name: 'au-menu', registry: AuMenuCustomElement as unknown as IRegistry },
+  { name: 'au-menu-item', registry: AuMenuItemCustomElement as unknown as IRegistry },
+  { name: 'au-menu-label', registry: AuMenuLabelCustomElement as unknown as IRegistry },
+  { name: 'au-divider', registry: AuDividerCustomElement as unknown as IRegistry },
+  { name: 'au-tabs', registry: AuTabsCustomElement as unknown as IRegistry },
+  { name: 'au-tab-panel', registry: AuTabPanelCustomElement as unknown as IRegistry },
+  { name: 'au-accordion', registry: AuAccordionCustomElement as unknown as IRegistry },
+  { name: 'au-accordion-item', registry: AuAccordionItemCustomElement as unknown as IRegistry },
+  { name: 'au-toast', registry: AuToastCustomElement as unknown as IRegistry },
+  { name: 'au-toast-center', registry: AuToastCenterCustomElement as unknown as IRegistry },
+  { name: 'au-card', registry: AuCardCustomElement as unknown as IRegistry },
+  { name: 'au-spinner', registry: AuSpinnerCustomElement as unknown as IRegistry },
+  { name: 'au-skeleton', registry: AuSkeletonCustomElement as unknown as IRegistry },
 ];
+
+export const ComponentEntries: readonly ComponentEntry[] = entries;
+export const ComponentRegistry = new Map(entries.map(entry => [entry.name.toLowerCase(), entry.registry]));
+export const DefaultComponents: IRegistry[] = entries.map(entry => entry.registry);

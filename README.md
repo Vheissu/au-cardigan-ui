@@ -65,4 +65,14 @@ Similarly, if you have added a class to your button, reference the class instead
 .my-button::part(primary) {
     background: blue;
 }
+
+## Configuration & Theming
+
+Cardigan now exposes helpers for dialing in the footprint you actually need, as well as runtime theme tokens:
+
+- `CardiganConfiguration.select(['au-button', 'au-card'])` registers a curated subset instead of the full bundle.
+- `CardiganConfiguration.from({ add: [MyCustomElement], exclude: ['au-toast'] })` lets you append custom registries while trimming built-ins.
+- `CardiganConfiguration.withTheme({ colors: { primary: '#ff3366' }, typography: { fontFamily: '"Space Grotesk", sans-serif' } })` injects CSS custom properties (`--au-cardigan-color-*`, `--au-cardigan-radius-*`, `--au-cardigan-spacing-*`, etc.) onto `:root` so every Cardigan component inherits your palette.
+
+Theme tokens can also be set manually in your global styles via the `--au-cardigan-*` variables if you prefer static CSS over runtime configuration.
 ```
