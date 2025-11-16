@@ -24,9 +24,9 @@ describe("Heading", () => {
     await stop(true);
   });
 
-  test("should render h2 element", async () => {
+  test.each([2, 3, 4, 5, 6])("should render h%s element", async (level) => {
     const { appHost, stop } = await createFixture(
-      '<au-heading level="2">My heading</au-heading>',
+      `<au-heading level="${level}">My heading</au-heading>`,
       {},
       [AuHeadingCustomElement]
     );
@@ -34,7 +34,7 @@ describe("Heading", () => {
     const componentHtml =
       appHost.querySelector("au-heading")?.shadowRoot?.innerHTML;
 
-    expect(componentHtml).toContain("<h2");
+    expect(componentHtml).toContain(`<h${level}`);
     expect(componentHtml).not.toContain("<h1");
 
     await stop(true);

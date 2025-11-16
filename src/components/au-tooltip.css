@@ -1,0 +1,52 @@
+:host {
+  display: inline-block;
+}
+
+.wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  visibility: hidden;
+  background: var(--tooltip-background, var(--color-dark));
+  color: var(--tooltip-color, var(--color-white));
+  text-align: center;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  position: absolute;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.wrapper:hover .tooltip {
+  visibility: visible;
+}
+
+.top {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 0.25rem;
+}
+
+.bottom {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.25rem;
+}
+
+.left {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 0.25rem;
+}
+
+.right {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 0.25rem;
+}

@@ -1,0 +1,13 @@
+:host {
+  display: block;
+  --divider-width: 100%;
+  --divider-color: var(--color-lightGrey);
+  --divider-spacing: 0.5rem 0;
+}
+
+.divider {
+  width: var(--divider-width);
+  height: 1px;
+  background: var(--divider-color);
+  margin: var(--divider-spacing);
+}

@@ -1,0 +1,9 @@
+:host {
+  display: block;
+}
+
+.label {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  color: var(--menu-label-color, var(--color-mediumGrey));
+}

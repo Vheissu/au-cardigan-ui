@@ -1,0 +1,28 @@
+:host {
+    --progress-background: var(--color-lightGrey);
+    --progress-bar-background: var(--color-primary);
+    --progress-height: 0.5rem;
+    display: block;
+}
+
+.progress {
+    background: var(--progress-background);
+    border-radius: var(--progress-border-radius, 0.25rem);
+    overflow: hidden;
+    height: var(--progress-height);
+}
+
+.bar {
+    background: var(--progress-bar-background);
+    height: 100%;
+    width: 0;
+    transition: width 0.2s ease;
+}
+
+.primary { --progress-bar-background: var(--color-primary); }
+.secondary { --progress-bar-background: var(--color-secondary); }
+.success { --progress-bar-background: var(--color-success); }
+.error { --progress-bar-background: var(--color-error); }
+.info { --progress-bar-background: var(--color-info); }
+.light { --progress-bar-background: var(--color-light); }
+.dark { --progress-bar-background: var(--color-dark); }
