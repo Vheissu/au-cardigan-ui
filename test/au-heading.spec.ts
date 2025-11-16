@@ -16,7 +16,7 @@ describe("Heading", () => {
     );
 
     const componentHtml =
-    appHost.querySelector("au-heading")?.shadowRoot?.innerHTML;
+      appHost.querySelector("au-heading")?.shadowRoot?.innerHTML;
 
     expect(componentHtml).toContain("<h1");
     expect(componentHtml).not.toContain("<h2");
@@ -32,7 +32,7 @@ describe("Heading", () => {
     );
 
     const componentHtml =
-    appHost.querySelector("au-heading")?.shadowRoot?.innerHTML;
+      appHost.querySelector("au-heading")?.shadowRoot?.innerHTML;
 
     expect(componentHtml).toContain("<h2");
     expect(componentHtml).not.toContain("<h1");
@@ -48,7 +48,7 @@ describe("Heading", () => {
     );
 
     const componentHtml =
-    appHost.querySelector("au-heading")?.shadowRoot?.innerHTML;
+      appHost.querySelector("au-heading")?.shadowRoot?.innerHTML;
 
     expect(componentHtml).toContain("<h3");
     expect(componentHtml).not.toContain("<h1");
@@ -64,7 +64,7 @@ describe("Heading", () => {
     );
 
     const componentHtml =
-    appHost.querySelector("au-heading")?.shadowRoot?.innerHTML;
+      appHost.querySelector("au-heading")?.shadowRoot?.innerHTML;
 
     expect(componentHtml).toContain("<h4");
     expect(componentHtml).not.toContain("<h1");
@@ -80,7 +80,7 @@ describe("Heading", () => {
     );
 
     const componentHtml =
-    appHost.querySelector("au-heading")?.shadowRoot?.innerHTML;
+      appHost.querySelector("au-heading")?.shadowRoot?.innerHTML;
 
     expect(componentHtml).toContain("<h5");
     expect(componentHtml).not.toContain("<h1");
@@ -96,7 +96,7 @@ describe("Heading", () => {
     );
 
     const componentHtml =
-    appHost.querySelector("au-heading")?.shadowRoot?.innerHTML;
+      appHost.querySelector("au-heading")?.shadowRoot?.innerHTML;
 
     expect(componentHtml).toContain("<h6");
     expect(componentHtml).not.toContain("<h1");
@@ -112,7 +112,7 @@ describe("Heading", () => {
     );
 
     const componentHtml =
-    appHost.querySelector("au-heading")?.shadowRoot?.innerHTML;
+      appHost.querySelector("au-heading")?.shadowRoot?.innerHTML;
 
     expect(componentHtml).toContain("<h1");
 

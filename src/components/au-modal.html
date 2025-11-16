@@ -1,11 +1,12 @@
 <div class="container" aria-label.bind="label" role.bind="role">
     <div class="backdrop" click.trigger="handleBackdropClick($event)" part="backdrop"></div>
-    <div class="wrapper" tabIndex="-1" style="width: ${width};" part="wrapper">
+    <div class="wrapper" tabindex="-1" style="width: ${width};" part="wrapper">
         <div class="modal-content" part="content-wrapper">
-            <template replaceable part="heading"></template>
+            <slot name="heading"></slot>
             <div class="modal-content-inner" part="content">
                 <slot></slot>
             </div>
+            <slot name="footer"></slot>
         </div>
     </div>
 </div>

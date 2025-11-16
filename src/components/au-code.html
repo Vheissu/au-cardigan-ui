@@ -1,15 +1,17 @@
-<template if.bind="type == 'pre'">
-
-    <pre class="pre" part="pre">
-        <code class="code" part="code">
-            <slot></slot>
-        </code>
-    </pre>
-
-</template>
-
-<template else>
-    <code class="code" part="code">
-        <slot></slot>
-    </code>
+<template>
+    <div class="code-container ${type === 'pre' ? 'pre-container' : ''}">
+        <template if.bind="type === 'pre'">
+            <pre class="pre" part="pre">
+                <code class="code ${language}" part="code">
+                    <slot></slot>
+                </code>
+            </pre>
+        </template>
+        <template else>
+            <code class="code ${language}" part="code">
+                <slot></slot>
+            </code>
+        </template>
+        <button if.bind="copyable" class="copy-button" click.trigger="copyText()">Copy</button>
+    </div>
 </template>

@@ -58,7 +58,7 @@ export class AuModalCustomElement implements ICustomElementViewModel {
             if (event.target !== event.currentTarget) {
                 return;
             }
-    
+
             this.onClose(event);
         }
     }

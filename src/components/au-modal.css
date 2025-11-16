@@ -1,41 +1,43 @@
 :host {
     --modal-backdrop-background: rgba(0, 0, 0, 0.4);
     --modal-wrapper-background: var(--color-white);
+    --modal-border-radius: 8px;
+    --modal-padding: 16px;
+    --modal-max-width: 90vw;
 }
 
 .container {
     align-items: center;
     box-sizing: border-box;
     display: flex;
-    height: 100%;
+    height: 100vh;
     justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1000;
+}
+
+.backdrop {
+    background: var(--modal-backdrop-background);
+    height: 100%;
     left: 0;
     position: fixed;
     top: 0;
     width: 100%;
 }
 
-.backdrop {
-    cursor: zoom-out;
-    background: var(--modal-backdrop-background);
-    height: 100%;
-    left: 0;
-    opacity: 0.9;
-    overflow-y: scroll;
-    position: absolute;
-    top: 0;
-    width: 100%;
-}
-
 .wrapper {
     background-color: var(--modal-wrapper-background);
-    border-radius: 32px;
+    border-radius: var(--modal-border-radius);
     display: flex;
-    margin-left: 16px;
-    margin-right: 16px;
     max-height: calc(100vh - 32px);
+    max-width: var(--modal-max-width);
     overflow: hidden;
     position: relative;
+    width: 100%;
+    z-index: 1001;
 }
 
 .wrapper:focus {
@@ -44,17 +46,23 @@
 
 .modal-content {
     display: flex;
-    flex: 1 1 auto;
     flex-direction: column;
-    min-height: 0;
-    min-width: 0;
-    position: relative;
+    max-height: calc(100vh - 32px);
     width: 100%;
 }
 
 .modal-content-inner {
     flex: 1 1 auto;
-    min-height: 0;
-    min-width: 0;
     overflow: auto;
+    padding: var(--modal-padding);
+}
+
+::slotted([slot="heading"]) {
+    padding: var(--modal-padding);
+    border-bottom: 1px solid var(--color-border, #e0e0e0);
+}
+
+::slotted([slot="footer"]) {
+    padding: var(--modal-padding);
+    border-top: 1px solid var(--color-border, #e0e0e0);
 }

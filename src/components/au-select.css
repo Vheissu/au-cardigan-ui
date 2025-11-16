@@ -1,50 +1,64 @@
 :host {
-    --select-padding: .375rem 1.75rem .375rem .75rem;
+    --select-background: var(--color-white, #ffffff);
+    --select-border-color: var(--color-lightGrey, #ced4da);
+    --select-text-color: var(--color-mediumGrey, #495057);
+    --select-focus-border-color: var(--color-skyBlue, #86b7fe);
+    --select-focus-box-shadow-color: rgba(13, 110, 253, 0.25);
+    --select-padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    --select-font-size: 1rem;
+    --select-line-height: 1.5;
+    --select-border-radius: 0.25rem;
+    --select-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
 }
 
 .select {
     appearance: none;
-    background-color: var(--color-white);
+    background-color: var(--select-background);
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
-    background-position: right .75rem center;
+    background-position: right 0.75rem center;
     background-repeat: no-repeat;
     background-size: 16px 12px;
-    border: 1px solid var(--color-lightGrey);
-    box-sizing: border-box;
-    color: var(--color-mediumGrey);
+    border: 1px solid var(--select-border-color);
+    border-radius: var(--select-border-radius);
+    color: var(--select-text-color);
     display: block;
-    font-size: 1rem;
-    height: calc(1.5em + .75rem + 2px);
-    line-height: 1.5;
-    margin: 0;
+    font-size: var(--select-font-size);
+    font-weight: 400;
+    line-height: var(--select-line-height);
     padding: var(--select-padding);
+    width: 100%;
+    transition: var(--select-transition);
+}
+
+.select:focus {
+    border-color: var(--select-focus-border-color);
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem var(--select-focus-box-shadow-color);
 }
 
 .select[multiple],
 .select[size]:not([size="1"]) {
-    height: auto;
-    padding-right: .75rem;
+    padding-right: 0.75rem;
     background-image: none;
 }
 
-.select:focus {
-    border-color: var(--color-skyBlue);
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, .25);
+.select:disabled {
+    background-color: var(--color-lightGrey, #e9ecef);
+    opacity: 1;
 }
 
-.small {
-    height: calc(1.5em + .5rem + 2px);
-    padding-top: .25rem;
-    padding-bottom: .25rem;
-    padding-left: .5rem;
-    font-size: .875rem;
+.small .select {
+    padding: 0.25rem 1.5rem 0.25rem 0.5rem;
+    font-size: 0.875rem;
 }
 
-.large {
-    height: calc(1.5em + 1rem + 2px);
-    padding-top: .5rem;
-    padding-bottom: .5rem;
-    padding-left: 1rem;
+.large .select {
+    padding: 0.5rem 2.25rem 0.5rem 1rem;
     font-size: 1.25rem;
 }

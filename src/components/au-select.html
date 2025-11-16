@@ -1,1 +1,19 @@
-<select class="select ${size}" part="select ${size}" value.bind="value"></select>
+<div class="select-wrapper ${size}">
+  <select
+    class="select"
+    part="select ${size}"
+    value.bind="value"
+    name.bind="name"
+    required.bind="required"
+    disabled.bind="disabled"
+    multiple.bind="multiple"
+  >
+    <option if.bind="placeholder" value="" disabled selected hidden>
+      ${placeholder}
+    </option>
+    <slot></slot>
+    <option repeat.for="option of allOptions" value.bind="option.value">
+      ${option.label}
+    </option>
+  </select>
+</div>
