@@ -1,5 +1,6 @@
 import { CardiganConfiguration } from '../src/configuration';
 import { ComponentRegistry } from '../src/components';
+import * as GlobalStyles from '../src/global-styles';
 import type { IContainer, IRegistry } from '@aurelia/kernel';
 
 class StubContainer {
@@ -13,6 +14,7 @@ class StubContainer {
 describe('CardiganConfiguration', () => {
   afterEach(() => {
     document.querySelector('style[data-au-cardigan-theme]')?.remove();
+    document.querySelector('style[data-au-cardigan-global]')?.remove();
   });
 
   test('select registers an explicit subset', () => {
@@ -59,5 +61,22 @@ describe('CardiganConfiguration', () => {
 
     const style = document.querySelector('style[data-au-cardigan-theme]');
     expect(style?.textContent).toContain('--au-cardigan-color-primary: #123456;');
+  });
+
+  test('withGlobalStyles delegates to helper', () => {
+    const spy = jest.spyOn(GlobalStyles, 'applyGlobalStyles');
+    const config = CardiganConfiguration.withGlobalStyles();
+    const container = new StubContainer();
+
+    config.register(container as unknown as IContainer);
+
+    expect(spy).toHaveBeenCalled();
+    spy.mockRestore();
+  });
+
+  test('applyGlobalStyles injects shared stylesheet', () => {
+    GlobalStyles.applyGlobalStyles(':root { color: red; }');
+    const style = document.querySelector('style[data-au-cardigan-global]');
+    expect(style).not.toBeNull();
   });
 });

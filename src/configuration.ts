@@ -1,5 +1,6 @@
 import { ComponentEntries, ComponentRegistry, DefaultComponents } from './components';
 import { applyTheme, CardiganThemeOptions } from './theme';
+import { applyGlobalStyles } from './global-styles';
 import { DI, IContainer, IRegistry } from '@aurelia/kernel';
 
 type ComponentSelector = string | IRegistry;
@@ -7,6 +8,7 @@ type ComponentSelector = string | IRegistry;
 interface InternalConfigurationOptions {
     components: IRegistry[];
     theme?: CardiganThemeOptions;
+    globalStyles?: boolean | string;
 }
 
 export interface CardiganConfigurationOptions {
@@ -14,14 +16,19 @@ export interface CardiganConfigurationOptions {
     exclude?: string[];
     add?: ComponentSelector[];
     theme?: CardiganThemeOptions;
+    globalStyles?: boolean | string;
 }
 
 function createConfiguration(options: InternalConfigurationOptions) {
-    const { components, theme } = options;
+    const { components, theme, globalStyles } = options;
     return {
         register(container: IContainer): IContainer {
             if (theme) {
                 applyTheme(theme);
+            }
+            if (globalStyles) {
+                const extraCss = typeof globalStyles === 'string' ? globalStyles : undefined;
+                applyGlobalStyles(extraCss);
             }
             return container.register(
                 ...components
@@ -83,7 +90,8 @@ export const CardiganConfiguration = Object.assign(cardiganConfiguration, {
     from(options: CardiganConfigurationOptions = {}) {
         return createConfiguration({
             components: normalizeComponents(options),
-            theme: options.theme
+            theme: options.theme,
+            globalStyles: options.globalStyles
         });
     },
     select(include: ComponentSelector[], options: Omit<CardiganConfigurationOptions, 'include'> = {}) {
@@ -96,6 +104,12 @@ export const CardiganConfiguration = Object.assign(cardiganConfiguration, {
         return CardiganConfiguration.from({
             ...options,
             theme
+        });
+    },
+    withGlobalStyles(extraCss?: string, options: Omit<CardiganConfigurationOptions, 'globalStyles'> = {}) {
+        return CardiganConfiguration.from({
+            ...options,
+            globalStyles: typeof extraCss === 'string' ? extraCss : true
         });
     }
 });

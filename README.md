@@ -73,6 +73,34 @@ Cardigan now exposes helpers for dialing in the footprint you actually need, as 
 - `CardiganConfiguration.select(['au-button', 'au-card'])` registers a curated subset instead of the full bundle.
 - `CardiganConfiguration.from({ add: [MyCustomElement], exclude: ['au-toast'] })` lets you append custom registries while trimming built-ins.
 - `CardiganConfiguration.withTheme({ colors: { primary: '#ff3366' }, typography: { fontFamily: '"Space Grotesk", sans-serif' } })` injects CSS custom properties (`--au-cardigan-color-*`, `--au-cardigan-radius-*`, `--au-cardigan-spacing-*`, etc.) onto `:root` so every Cardigan component inherits your palette.
+- `CardiganConfiguration.withGlobalStyles()` ensures the shared CSS variables are emitted once at the document level (handy for styling non-Cardigan DOM) and accepts an optional string for extra overrides.
 
 Theme tokens can also be set manually in your global styles via the `--au-cardigan-*` variables if you prefer static CSS over runtime configuration.
+
+```ts
+import { CardiganConfiguration, CardiganThemeOptions } from 'au-cardigan';
+
+const theme: CardiganThemeOptions = {
+  colors: {
+    primary: '#4c6ef5',
+    dark: '#0b0f19',
+  },
+  radius: {
+    medium: '0.75rem',
+  },
+  spacing: {
+    md: '1.25rem',
+  },
+  typography: {
+    fontFamily: '"Space Grotesk", sans-serif',
+    fontSize: '15px',
+  },
+};
+
+export const CardiganTheme = CardiganConfiguration.withTheme(theme);
+export const CardiganGlobals = CardiganConfiguration.withGlobalStyles();
+
+// In your Aurelia bootstrap:
+// Aurelia.register(CardiganGlobals, CardiganTheme);
+// applyGlobalStyles(); // or call directly if you only need the CSS variables.
 ```
