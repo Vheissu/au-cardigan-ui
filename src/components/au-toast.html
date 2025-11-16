@@ -1,0 +1,28 @@
+<div class="toast ${type}" part="toast" role="status" aria-live="polite">
+  <div class="toast-body">
+    <p class="toast-title" part="title" if.bind="title">${title}</p>
+    <p class="toast-message" part="message" if.bind="message">${message}</p>
+    <slot></slot>
+  </div>
+  <div class="toast-actions" part="actions">
+    <button
+      type="button"
+      class="toast-action"
+      part="action"
+      if.bind="actionLabel"
+      click.trigger="handleAction()"
+    >
+      ${actionLabel}
+    </button>
+    <button
+      type="button"
+      class="toast-dismiss"
+      part="dismiss"
+      if.bind="dismissible"
+      aria-label="Dismiss notification"
+      click.trigger="dismiss()"
+    >
+      ×
+    </button>
+  </div>
+</div>

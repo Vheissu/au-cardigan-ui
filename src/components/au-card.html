@@ -1,0 +1,25 @@
+<article
+  class="card ${variant} padding-${padding} align-${mediaAlign} ${interactive ? 'interactive' : ''}"
+  part="card"
+  role.bind="cardRole"
+  tabindex.bind="tabIndex"
+>
+  <div class="card-media" part="media" if.bind="shouldShowMedia">
+    <slot name="media" slotchange.trigger="handleMediaSlot($event)"></slot>
+  </div>
+  <div class="card-body" part="body">
+    <header class="card-header" part="header" if.bind="shouldShowHeader">
+      <slot name="header" slotchange.trigger="handleHeaderSlot($event)"></slot>
+      <template if.bind="!headerProjected">
+        <p class="card-title" part="title" if.bind="heading">${heading}</p>
+        <p class="card-subtitle" part="subtitle" if.bind="subheading">${subheading}</p>
+      </template>
+    </header>
+    <div class="card-content" part="content">
+      <slot></slot>
+    </div>
+    <footer class="card-footer" part="footer" if.bind="shouldShowFooter">
+      <slot name="footer" slotchange.trigger="handleFooterSlot($event)"></slot>
+    </footer>
+  </div>
+</article>

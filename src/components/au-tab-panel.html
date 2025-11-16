@@ -1,0 +1,12 @@
+<section
+  class="tab-panel ${active ? 'active' : ''}"
+  part="panel"
+  role="tabpanel"
+  aria-hidden.bind="!active"
+  aria-labelledby.bind="tabId"
+  id.bind="panelUid"
+>
+  <div class="tab-panel__content" part="content" if.bind="showContent">
+    <slot></slot>
+  </div>
+</section>

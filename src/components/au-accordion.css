@@ -1,0 +1,25 @@
+:host {
+    display: block;
+    --accordion-border: rgba(0, 0, 0, 0.1);
+    --accordion-background: var(--color-white);
+}
+
+.accordion {
+    border: 1px solid transparent;
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.accordion.default {
+    border-color: transparent;
+}
+
+.accordion.bordered {
+    border-color: var(--accordion-border);
+}
+
+.accordion.contained {
+    border-color: var(--accordion-border);
+    background: var(--accordion-background);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}

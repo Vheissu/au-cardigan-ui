@@ -11,9 +11,16 @@ describe('AuCode', () => {
 
     await startPromise;
 
-    const codeElement = appHost.querySelector('au-code')?.shadowRoot?.querySelector('code');
-    expect(codeElement).toBeDefined();
-    expect(codeElement?.textContent?.trim()).toBe('const example = "test";');
+    const host = appHost.querySelector('au-code');
+    const slot = host?.shadowRoot?.querySelector('slot');
+    const text = slot
+      ? slot
+          .assignedNodes()
+          .map((node) => node.textContent)
+          .join('')
+          .trim()
+      : '';
+    expect(text).toBe('const example = "test";');
 
     await stop(true);
   });

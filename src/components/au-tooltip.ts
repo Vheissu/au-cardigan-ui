@@ -1,3 +1,4 @@
+import '../polyfills';
 import { bindable, customElement, ICustomElementViewModel, shadowCSS } from '@aurelia/runtime-html';
 import SharedStyles from '../variables.css';
 import styles from './au-tooltip.css';

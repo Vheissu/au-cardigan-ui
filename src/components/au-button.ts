@@ -1,3 +1,4 @@
+import '../polyfills';
 import { bindable, ICustomElementViewModel, customElement, shadowCSS } from '@aurelia/runtime-html';
 
 import SharedStyles from '../variables.css';

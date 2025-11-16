@@ -1,5 +1,6 @@
 import { BrowserPlatform } from "@aurelia/platform-browser";
 import { setPlatform } from "@aurelia/testing";
+import "../src/polyfills";
 
 function bootstrapTestEnvironment() {
   const platform = new BrowserPlatform(window);

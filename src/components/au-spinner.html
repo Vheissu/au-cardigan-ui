@@ -1,0 +1,10 @@
+<div
+  class="spinner ${size} ${variant} ${paused ? 'paused' : ''}"
+  part="spinner"
+  role="status"
+  aria-live="polite"
+  aria-label.bind="ariaLabel"
+>
+  <span class="visually-hidden">${ariaLabel}</span>
+  <slot></slot>
+</div>

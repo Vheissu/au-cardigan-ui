@@ -1,0 +1,104 @@
+:host {
+    --switch-track-width: 2.5rem;
+    --switch-track-height: 1.25rem;
+    --switch-thumb-size: 1rem;
+    --switch-off-color: var(--color-lightGrey, #ced4da);
+    --switch-on-color: var(--color-primary, #0466c8);
+    --switch-thumb-color: var(--color-white, #ffffff);
+    --switch-focus-ring: rgba(4, 102, 200, 0.35);
+    --switch-error-color: var(--color-error, #dc3545);
+    --switch-helper-color: var(--color-mediumGrey, #6c757d);
+    display: block;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+}
+
+.native {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.track {
+    position: relative;
+    width: var(--switch-track-width);
+    height: var(--switch-track-height);
+    border-radius: var(--switch-track-height);
+    background: var(--switch-off-color);
+    transition: background 0.2s ease;
+}
+
+.thumb {
+    position: absolute;
+    top: 50%;
+    left: 0.125rem;
+    transform: translate(0, -50%);
+    width: var(--switch-thumb-size);
+    height: var(--switch-thumb-size);
+    border-radius: 999px;
+    background: var(--switch-thumb-color);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.is-checked .track {
+    background: var(--switch-on-color);
+}
+
+.is-checked .thumb {
+    transform: translate(calc(var(--switch-track-width) - var(--switch-thumb-size) - 0.25rem), -50%);
+}
+
+.switch:focus-within .track {
+    box-shadow: 0 0 0 0.2rem var(--switch-focus-ring);
+}
+
+.is-disabled .switch {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.message {
+    font-size: 0.8125rem;
+    margin: 0;
+}
+
+.message.helper {
+    color: var(--switch-helper-color);
+}
+
+.message.error {
+    color: var(--switch-error-color);
+}
+
+.has-error .track {
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.2);
+}
+
+.small {
+    --switch-track-width: 2rem;
+    --switch-track-height: 1rem;
+    --switch-thumb-size: 0.85rem;
+}
+
+.large {
+    --switch-track-width: 3rem;
+    --switch-track-height: 1.5rem;
+    --switch-thumb-size: 1.25rem;
+}
+
+.description {
+    color: var(--switch-helper-color);
+    font-size: 0.875rem;
+}

@@ -1,0 +1,112 @@
+:host {
+    display: block;
+    --tab-border-color: var(--color-lightGrey);
+    --tab-active-color: var(--color-primary);
+    --tab-inactive-color: var(--color-mediumGrey);
+    --tab-radius: 0.5rem;
+    --tab-gap: 0.25rem;
+}
+
+.tabs {
+    width: 100%;
+}
+
+.tablist {
+    display: flex;
+    gap: var(--tab-gap);
+    border-bottom: 1px solid var(--tab-border-color);
+    flex-wrap: wrap;
+}
+
+.tabs.orientation-vertical .tablist {
+    flex-direction: column;
+    border-bottom: none;
+    border-right: 1px solid var(--tab-border-color);
+}
+
+.tab {
+    background: none;
+    border: none;
+    color: var(--tab-inactive-color);
+    font: inherit;
+    padding: 0.6rem 1rem;
+    border-radius: var(--tab-radius) var(--tab-radius) 0 0;
+    position: relative;
+    transition: color 150ms ease, background 150ms ease;
+}
+
+.tab:focus-visible {
+    outline: 2px solid var(--tab-active-color);
+    outline-offset: 2px;
+    border-radius: var(--tab-radius);
+}
+
+.tab.active {
+    color: var(--tab-active-color);
+}
+
+.tabs.underline .tab {
+    border-radius: 0;
+}
+
+.tabs.underline .tab.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 3px;
+    background: var(--tab-active-color);
+}
+
+.tabs.pill .tab {
+    border-radius: 999px;
+    border: 1px solid transparent;
+}
+
+.tabs.pill .tab.active {
+    background: var(--tab-active-color);
+    color: var(--color-white);
+}
+
+.tabs.soft .tab.active {
+    background: var(--color-light);
+    border-radius: var(--tab-radius);
+}
+
+.tab.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.tabs.stretch .tablist {
+    justify-content: space-between;
+}
+
+.tabs.stretch .tab {
+    flex: 1;
+    text-align: center;
+}
+
+.tab-panels {
+    padding-top: 1rem;
+}
+
+.tabs.orientation-vertical {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 1.5rem;
+}
+
+.tabs.orientation-vertical .tab {
+    border-radius: var(--tab-radius);
+}
+
+.tabs.orientation-vertical .tab.active {
+    background: var(--color-light);
+}
+
+.tab-icon {
+    margin-right: 0.35rem;
+    font-size: 0.9em;
+}

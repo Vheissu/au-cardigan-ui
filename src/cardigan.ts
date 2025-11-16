@@ -1,3 +1,4 @@
+import './polyfills';
 import VariableStyles from './variables.css';
 
 export { CardiganConfiguration } from './configuration';

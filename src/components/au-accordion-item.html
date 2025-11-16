@@ -1,0 +1,33 @@
+<div class="accordion-item ${open ? 'open' : ''} ${disabled ? 'disabled' : ''}" part="item">
+  <button
+    class="accordion-trigger"
+    part="trigger"
+    type="button"
+    aria-expanded.bind="open"
+    aria-controls.bind="panelId"
+    id.bind="buttonId"
+    disabled.bind="disabled"
+    click.trigger="requestToggle()"
+  >
+    <div class="accordion-header">
+      <slot name="heading" slotchange.trigger="handleHeadingSlot($event)"></slot>
+      <template if.bind="!headingProjected">
+        <span class="accordion-heading" part="heading">${heading}</span>
+        <span class="accordion-description" part="description" if.bind="description">${description}</span>
+      </template>
+    </div>
+    <span class="accordion-indicator" aria-hidden="true" part="indicator"></span>
+  </button>
+  <div
+    class="accordion-panel"
+    part="panel"
+    id.bind="panelId"
+    role="region"
+    aria-labelledby.bind="buttonId"
+    show.bind="open"
+  >
+    <div class="accordion-panel-content" part="panel-content" if.bind="shouldRenderContent">
+      <slot></slot>
+    </div>
+  </div>
+</div>

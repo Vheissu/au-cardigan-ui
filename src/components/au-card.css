@@ -1,0 +1,151 @@
+:host {
+    display: block;
+    --card-background: var(--color-white);
+    --card-border-color: rgba(0, 0, 0, 0.08);
+    --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    --card-shadow-hover: 0 8px 18px rgba(0, 0, 0, 0.15);
+    --card-outline-color: rgba(0, 0, 0, 0.12);
+    --card-padding-none: 0;
+    --card-padding-compact: 0.75rem;
+    --card-padding-comfortable: 1.25rem;
+    --card-padding-spacious: 2rem;
+    --card-header-gap: 0.25rem;
+    --card-footer-gap: 0.75rem;
+    --card-border-radius: 0.75rem;
+    --card-media-gap: 1rem;
+}
+
+.card {
+    background: var(--card-background);
+    border-radius: var(--card-border-radius);
+    border: 1px solid transparent;
+    box-shadow: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: var(--card-media-gap);
+    outline: none;
+    transition: box-shadow 150ms ease, transform 150ms ease, border-color 150ms ease;
+}
+
+.card.padding-none {
+    padding: var(--card-padding-none);
+}
+
+.card.padding-compact {
+    padding: var(--card-padding-compact);
+}
+
+.card.padding-comfortable {
+    padding: var(--card-padding-comfortable);
+}
+
+.card.padding-spacious {
+    padding: var(--card-padding-spacious);
+}
+
+.card .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--card-footer-gap);
+}
+
+.card .card-media::slotted(*) {
+    width: 100%;
+    border-radius: calc(var(--card-border-radius) - 0.25rem);
+    display: block;
+}
+
+.card .card-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--card-header-gap);
+}
+
+.card .card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.card .card-subtitle {
+    font-size: 0.95rem;
+    color: var(--card-subtitle-color, var(--color-mediumGrey));
+    margin: 0;
+}
+
+.card .card-content {
+    flex: 1;
+}
+
+.card .card-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+.card.elevated {
+    box-shadow: var(--card-shadow);
+}
+
+.card.elevated.interactive:hover,
+.card.elevated.interactive:focus-visible {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-1px);
+}
+
+.card.outlined {
+    border-color: var(--card-border-color);
+}
+
+.card.subtle {
+    background: var(--card-subtle-background, var(--color-light));
+    border-color: transparent;
+}
+
+.card.interactive {
+    cursor: pointer;
+}
+
+.card.interactive:focus-visible {
+    outline: 2px solid var(--card-outline-color);
+    outline-offset: 2px;
+}
+
+.card.align-start {
+    flex-direction: column;
+}
+
+.card.align-end {
+    flex-direction: column;
+}
+
+.card.align-start .card-media,
+.card.align-end .card-media {
+    order: 0;
+}
+
+.card.align-top .card-media {
+    order: 0;
+}
+
+.card-media {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .card.align-start,
+    .card.align-end {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .card.align-start .card-media,
+    .card.align-end .card-media {
+        flex: 0 0 220px;
+    }
+
+    .card.align-end .card-media {
+        order: 1;
+    }
+}

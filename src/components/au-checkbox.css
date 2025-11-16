@@ -1,0 +1,111 @@
+:host {
+    --checkbox-size: 1.25rem;
+    --checkbox-border-color: var(--color-lightGrey, #ced4da);
+    --checkbox-background: var(--color-white, #ffffff);
+    --checkbox-check-color: var(--color-white, #ffffff);
+    --checkbox-active-color: var(--color-primary, #0466c8);
+    --checkbox-focus-ring: rgba(4, 102, 200, 0.35);
+    --checkbox-error-color: var(--color-error, #dc3545);
+    --checkbox-helper-color: var(--color-mediumGrey, #6c757d);
+    display: block;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.native {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.box {
+    width: var(--checkbox-size);
+    height: var(--checkbox-size);
+    border-radius: 0.25rem;
+    border: 2px solid var(--checkbox-border-color);
+    background: var(--checkbox-background);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.check {
+    width: 0.6rem;
+    height: 0.35rem;
+    border-left: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    transform: rotate(-45deg);
+    transition: border-color 0.15s ease;
+}
+
+.is-checked .box {
+    background: var(--checkbox-active-color);
+    border-color: var(--checkbox-active-color);
+}
+
+.is-checked .check {
+    border-color: var(--checkbox-check-color);
+}
+
+.is-indeterminate .check {
+    width: 0.7rem;
+    height: 0;
+    border: none;
+    border-bottom: 2px solid var(--checkbox-check-color);
+    transform: none;
+}
+
+.is-indeterminate .box {
+    background: var(--checkbox-active-color);
+    border-color: var(--checkbox-active-color);
+}
+
+.checkbox:focus-within .box {
+    box-shadow: 0 0 0 0.2rem var(--checkbox-focus-ring);
+}
+
+.is-disabled .checkbox {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.description {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--checkbox-helper-color);
+}
+
+.message {
+    font-size: 0.8125rem;
+    margin: 0;
+}
+
+.message.helper {
+    color: var(--checkbox-helper-color);
+}
+
+.message.error {
+    color: var(--checkbox-error-color);
+}
+
+.has-error .box {
+    border-color: var(--checkbox-error-color);
+}
+
+.has-error.is-checked .box {
+    background: var(--checkbox-error-color);
+    border-color: var(--checkbox-error-color);
+}

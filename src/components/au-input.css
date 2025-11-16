@@ -1,0 +1,123 @@
+:host {
+    --input-background: var(--color-white, #ffffff);
+    --input-border-color: var(--color-lightGrey, #ced4da);
+    --input-text-color: var(--color-dark, #212529);
+    --input-placeholder-color: var(--color-mediumGrey, #6c757d);
+    --input-focus-border-color: var(--color-skyBlue, #86b7fe);
+    --input-focus-shadow: rgba(13, 110, 253, 0.25);
+    --input-error-color: var(--color-error, #dc3545);
+    --input-helper-color: var(--color-mediumGrey, #6c757d);
+    --input-border-radius: 0.375rem;
+    --input-padding-y: 0.5rem;
+    --input-padding-x: 0.75rem;
+    --input-font-size: 1rem;
+    display: block;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-mediumGrey, #495057);
+}
+
+.required-indicator {
+    color: var(--input-error-color);
+    margin-left: 0.25rem;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--input-border-color);
+    border-radius: var(--input-border-radius);
+    background: var(--input-background);
+    padding: var(--input-padding-y) var(--input-padding-x);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input-wrapper:focus-within {
+    border-color: var(--input-focus-border-color);
+    box-shadow: 0 0 0 0.2rem var(--input-focus-shadow);
+}
+
+.input {
+    border: none;
+    background: transparent;
+    color: var(--input-text-color);
+    font-size: var(--input-font-size);
+    line-height: 1.5;
+    width: 100%;
+    font-family: inherit;
+    padding: 0;
+}
+
+.input::placeholder {
+    color: var(--input-placeholder-color);
+}
+
+.input:focus {
+    outline: none;
+}
+
+.affix {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-mediumGrey, #6c757d);
+}
+
+.affix ::slotted(*) {
+    display: inherit;
+    align-items: inherit;
+    color: inherit;
+}
+
+.message {
+    font-size: 0.8125rem;
+    margin: 0;
+}
+
+.message.helper {
+    color: var(--input-helper-color);
+}
+
+.message.error {
+    color: var(--input-error-color);
+}
+
+.has-error .input-wrapper {
+    border-color: var(--input-error-color);
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.2);
+}
+
+.is-disabled .input-wrapper {
+    background: var(--color-lightGrey, #f1f3f5);
+    color: var(--color-mediumGrey, #adb5bd);
+    cursor: not-allowed;
+}
+
+.is-disabled .input {
+    cursor: not-allowed;
+}
+
+.small .input-wrapper {
+    padding: 0.375rem 0.5rem;
+}
+
+.small .input {
+    font-size: 0.875rem;
+}
+
+.large .input-wrapper {
+    padding: 0.75rem 1rem;
+}
+
+.large .input {
+    font-size: 1.125rem;
+}

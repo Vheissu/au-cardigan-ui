@@ -36,6 +36,16 @@ Cardigan features a small, but growing number of components.
 - `<au-badge>` displays a small label that can be color coded
 - `<au-alert>` shows a contextual message with optional dismissal
 - `<au-progress>` displays progress for an operation
+- `<au-input>` wraps native `<input>` elements with consistent labels, helper text, and validation states
+- `<au-textarea>` mirrors `au-input` for multiline text areas
+- `<au-checkbox>` renders a labeled checkbox with optional descriptions and helper/error messages
+- `<au-switch>` provides a toggle presentation for boolean settings
+- `<au-card>` offers a flexible content surface with header/footer/media slots and interactive states
+- `<au-tabs>` + `<au-tab-panel>` provide accessible tabbed navigation with keyboard support
+- `<au-accordion>` + `<au-accordion-item>` collapse dense content while preserving semantic headings
+- `<au-toast>` displays compact status messages, while `<au-toast-center>` manages toast stacks and timers
+- `<au-spinner>` presents a standardized loading indicator with multiple sizes and variants
+- `<au-skeleton>` renders loading placeholders for text, blocks, or avatars
 
 ## Styling Components
 

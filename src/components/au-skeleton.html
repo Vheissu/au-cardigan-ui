@@ -1,0 +1,21 @@
+<div
+  class="skeleton ${shape} ${animated ? 'animated' : ''}"
+  part="skeleton"
+  role="status"
+  aria-live="polite"
+  aria-label.bind="ariaLabel"
+>
+  <template if.bind="shape === 'text'">
+    <div
+      class="skeleton-line"
+      repeat.for="line of lineIndexes"
+      style="width: ${getLineWidth($index)}; height: ${height}"
+    ></div>
+  </template>
+  <div
+    class="skeleton-block"
+    else
+    part="block"
+    style="width: ${width}; height: ${height}; border-radius: ${radius}"
+  ></div>
+</div>

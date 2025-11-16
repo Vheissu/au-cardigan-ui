@@ -1,0 +1,32 @@
+<div class="field ${disabled ? 'is-disabled' : ''} ${error ? 'has-error' : ''} ${checked ? 'is-checked' : ''} ${indeterminate ? 'is-indeterminate' : ''}">
+  <label class="checkbox" part="label">
+    <input
+      ref="checkboxElement"
+      type="checkbox"
+      class="native"
+      part="input"
+      checked.bind="checked"
+      disabled.bind="disabled"
+      required.bind="required"
+      value.bind="value"
+      id.bind="controlId"
+      name.bind="name"
+      aria-invalid.bind="!!error"
+      aria-describedby.bind="describedBy"
+      change.trigger="handleChange($event)"
+    />
+    <span class="box" aria-hidden="true" part="box">
+      <span class="check"></span>
+    </span>
+    <div class="content" part="content">
+      <span class="label" part="text">${label}</span>
+      <span if.bind="description" class="description" part="description">${description}</span>
+    </div>
+  </label>
+  <p if.bind="error" id.bind="errorId" class="message error" part="message error">
+    ${error}
+  </p>
+  <p else.if.bind="helper" id.bind="helperId" class="message helper" part="message helper">
+    ${helper}
+  </p>
+</div>

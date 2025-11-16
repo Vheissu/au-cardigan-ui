@@ -1,0 +1,54 @@
+:host {
+    display: contents;
+}
+
+.toast-center {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.toast-center > au-toast {
+    pointer-events: auto;
+}
+
+.toast-center.top-right {
+    top: 1rem;
+    right: 1rem;
+    align-items: flex-end;
+}
+
+.toast-center.top-left {
+    top: 1rem;
+    left: 1rem;
+    align-items: flex-start;
+}
+
+.toast-center.bottom-right {
+    bottom: 1rem;
+    right: 1rem;
+    align-items: flex-end;
+}
+
+.toast-center.bottom-left {
+    bottom: 1rem;
+    left: 1rem;
+    align-items: flex-start;
+}
+
+.toast-center.top-center {
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+}
+
+.toast-center.bottom-center {
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+}

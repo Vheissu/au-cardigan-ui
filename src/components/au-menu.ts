@@ -1,3 +1,5 @@
+import '../polyfills';
+import { resolve } from '@aurelia/kernel';
 import { ICustomElementViewModel, customElement, shadowCSS } from '@aurelia/runtime-html';
 import SharedStyles from '../variables.css';
 import styles from './au-menu.css';
@@ -14,8 +16,7 @@ export class AuMenuCustomElement implements ICustomElementViewModel {
   private activeIndex = -1;
   private typeBuffer = '';
   private typeTimeout: any = null;
-
-  constructor(private readonly element: HTMLElement) {}
+  private readonly element = resolve(HTMLElement);
 
   attached() {
     this.refreshItems();

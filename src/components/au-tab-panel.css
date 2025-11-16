@@ -1,0 +1,15 @@
+:host {
+    display: block;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+.tab-panel__content {
+    padding-top: 1rem;
+}

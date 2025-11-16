@@ -39,9 +39,9 @@ describe("Select", () => {
     const options = select?.querySelectorAll("option");
 
     expect(options).toHaveLength(3);
-    expect(options?.[0].textContent).toBe("Select an option");
-    expect(options?.[1].textContent).toBe("Option 1");
-    expect(options?.[2].textContent).toBe("Option 2");
+    expect(options?.[0].textContent?.trim()).toBe("Select an option");
+    expect(options?.[1].textContent?.trim()).toBe("Option 1");
+    expect(options?.[2].textContent?.trim()).toBe("Option 2");
 
     await stop(true);
   });
@@ -67,9 +67,9 @@ describe("Select", () => {
     const options = select?.querySelectorAll("option");
 
     expect(options).toHaveLength(3); // Including the placeholder option
-    expect(options?.[0].textContent).toBe("Select an option");
-    expect(options?.[1].textContent).toBe("Option 1");
-    expect(options?.[2].textContent).toBe("Option 2");
+    expect(options?.[0].textContent?.trim()).toBe("Select an option");
+    expect(options?.[1].textContent?.trim()).toBe("Option 1");
+    expect(options?.[2].textContent?.trim()).toBe("Option 2");
 
     await stop(true);
   });
@@ -87,7 +87,7 @@ describe("Select", () => {
       .querySelector("au-select")
       ?.shadowRoot?.querySelector("option[disabled][selected]");
 
-    expect(placeholderOption?.textContent).toBe("Select an option");
+    expect(placeholderOption?.textContent?.trim()).toBe("Select an option");
 
     await stop(true);
   });

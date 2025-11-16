@@ -1,0 +1,55 @@
+:host {
+    display: block;
+    --skeleton-base: rgba(0, 0, 0, 0.1);
+    --skeleton-highlight: rgba(255, 255, 255, 0.6);
+    --skeleton-radius: 0.5rem;
+}
+
+.skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.skeleton-line,
+.skeleton-block {
+    background: linear-gradient(
+        90deg,
+        var(--skeleton-base) 25%,
+        var(--skeleton-highlight) 50%,
+        var(--skeleton-base) 75%
+    );
+    background-size: 200% 100%;
+    border-radius: var(--skeleton-radius);
+    min-height: 0.75rem;
+    animation: skeleton-shimmer 1400ms ease-in-out infinite;
+}
+
+.skeleton:not(.animated) .skeleton-line,
+.skeleton:not(.animated) .skeleton-block {
+    animation: none;
+    background: var(--skeleton-base);
+}
+
+.skeleton.circle .skeleton-block {
+    border-radius: 999px;
+}
+
+.skeleton.avatar .skeleton-block {
+    border-radius: 999px;
+    height: 3rem;
+    width: 3rem;
+}
+
+.skeleton.rect .skeleton-block {
+    border-radius: var(--skeleton-radius);
+}
+
+@keyframes skeleton-shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}

@@ -1,0 +1,17 @@
+<div
+  class="toast-center ${position}"
+  part="center"
+  toast-dismiss.trigger="handleDismiss($event)"
+  toast-action.trigger="handleAction($event)"
+>
+  <au-toast
+    repeat.for="toast of toasts"
+    toast-id.bind="toast.id"
+    type.bind="toast.type"
+    title.bind="toast.title"
+    message.bind="toast.message"
+    dismissible.bind="toast.dismissible"
+    action-label.bind="toast.actionLabel"
+    action-callback.bind="toast.action"
+  ></au-toast>
+</div>

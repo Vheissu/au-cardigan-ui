@@ -1,0 +1,34 @@
+<div
+  class="tabs ${variant} orientation-${orientation} ${stretch ? 'stretch' : ''}"
+  part="tabs"
+>
+  <div
+    class="tablist"
+    part="tablist"
+    role="tablist"
+    aria-orientation.bind="orientation"
+  >
+    <button
+      repeat.for="panel of panels"
+      class="tab ${panel.active ? 'active' : ''} ${panel.disabled ? 'disabled' : ''}"
+      part="tab"
+      type="button"
+      role="tab"
+      aria-selected.bind="panel.active"
+      aria-controls.bind="panel.panelUid"
+      aria-disabled.bind="panel.disabled"
+      id.bind="panel.tabId"
+      tabindex.bind="panel.active ? 0 : -1"
+      disabled.bind="panel.disabled"
+      data-tab-id.bind="panel.panelUid"
+      click.trigger="onTabClick(panel)"
+      keydown.trigger="handleKeydown($event, $index)"
+    >
+      <span class="tab-icon" part="tab-icon" if.bind="panel.icon">${panel.icon}</span>
+      <span class="tab-label" part="tab-label">${getPanelLabel(panel, $index)}</span>
+    </button>
+  </div>
+  <div class="tab-panels" part="panels">
+    <slot></slot>
+  </div>
+</div>

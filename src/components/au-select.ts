@@ -1,3 +1,4 @@
+import '../polyfills';
 import { BindingMode } from '@aurelia/runtime-html';
 import {
     bindable,

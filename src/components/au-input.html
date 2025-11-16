@@ -1,0 +1,37 @@
+<div class="field ${size} ${disabled ? 'is-disabled' : ''} ${error ? 'has-error' : ''}">
+  <label if.bind="label" class="label" for.bind="controlId" part="label ${size}">
+    ${label}
+    <span if.bind="required" class="required-indicator" part="required-indicator">*</span>
+  </label>
+  <div class="input-wrapper ${size}" part="control ${size}">
+    <span class="affix prefix" part="prefix">
+      <slot name="prefix"></slot>
+    </span>
+    <input
+      id.bind="controlId"
+      class="input"
+      part="input ${size}"
+      type.bind="type"
+      value.bind="value"
+      placeholder.bind="placeholder"
+      name.bind="name"
+      autocomplete.bind="autocomplete"
+      disabled.bind="disabled"
+      readonly.bind="readonly"
+      required.bind="required"
+      inputmode.bind="inputmode"
+      aria-invalid.bind="!!error"
+      aria-describedby.bind="describedBy"
+      input.trigger="handleInput($event)"
+    />
+    <span class="affix suffix" part="suffix">
+      <slot name="suffix"></slot>
+    </span>
+  </div>
+  <p if.bind="error" id.bind="errorId" class="message error" part="message error">
+    ${error}
+  </p>
+  <p else.if.bind="helper" id.bind="helperId" class="message helper" part="message helper">
+    ${helper}
+  </p>
+</div>

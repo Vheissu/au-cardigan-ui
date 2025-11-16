@@ -1,3 +1,4 @@
+import '../polyfills';
 import {
     bindable,
     ICustomElementViewModel,
@@ -24,9 +25,14 @@ export class AuCodeCustomElement implements ICustomElementViewModel {
     private element: HTMLElement = resolve(HTMLElement);
 
     private copyText(): void {
-        const codeElement = this.element.shadowRoot.querySelector('code');
-        if (codeElement) {
-            navigator.clipboard.writeText(codeElement.textContent.trim());
-        }
+        const slot = this.element.shadowRoot?.querySelector('slot');
+        const content = slot
+            ? slot
+                .assignedNodes()
+                .map(node => node.textContent)
+                .join('')
+                .trim()
+            : '';
+        navigator.clipboard.writeText(content);
     }
 }
