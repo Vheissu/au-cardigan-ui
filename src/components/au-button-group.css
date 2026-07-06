@@ -1,0 +1,48 @@
+:host {
+    display: inline-block;
+    --button-group-radius: var(--au-cardigan-button-group-radius, var(--radius-small, 0.25rem));
+    --button-group-gap: var(--au-cardigan-button-group-gap, 1px);
+}
+
+.group {
+    display: inline-flex;
+    align-items: stretch;
+}
+
+.group.vertical {
+    flex-direction: column;
+    align-items: initial;
+}
+
+::slotted(au-button) {
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.group.horizontal ::slotted(au-button:not(:first-child)) {
+    margin-left: var(--button-group-gap);
+}
+
+.group.vertical ::slotted(au-button:not(:first-child)) {
+    margin-top: var(--button-group-gap);
+}
+
+.group.horizontal ::slotted(au-button:first-child) {
+    border-top-left-radius: var(--button-group-radius);
+    border-bottom-left-radius: var(--button-group-radius);
+}
+
+.group.horizontal ::slotted(au-button:last-child) {
+    border-top-right-radius: var(--button-group-radius);
+    border-bottom-right-radius: var(--button-group-radius);
+}
+
+.group.vertical ::slotted(au-button:first-child) {
+    border-top-left-radius: var(--button-group-radius);
+    border-top-right-radius: var(--button-group-radius);
+}
+
+.group.vertical ::slotted(au-button:last-child) {
+    border-bottom-left-radius: var(--button-group-radius);
+    border-bottom-right-radius: var(--button-group-radius);
+}

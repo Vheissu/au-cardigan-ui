@@ -1,0 +1,9 @@
+<li class="item ${last ? 'is-last' : ''}" part="item">
+    <a if.bind="href" class="link" part="link" href.bind="href" aria-current.bind="ariaCurrent">
+        <slot></slot>
+    </a>
+    <span else class="label" part="label" aria-current.bind="ariaCurrent">
+        <slot></slot>
+    </span>
+    <span if.bind="!last" class="separator" part="separator" aria-hidden="true">${separator}</span>
+</li>

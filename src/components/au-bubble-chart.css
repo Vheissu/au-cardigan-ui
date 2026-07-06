@@ -1,0 +1,7 @@
+:host {
+    --bubble-chart-grid-color: var(--color-lightGrey, #ced4da);
+}
+
+.swatch {
+    border-radius: 50%;
+}

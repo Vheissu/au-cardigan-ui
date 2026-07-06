@@ -1,1 +1,9 @@
-<button disabled.bind="disabled" class="button ${color} ${size}" title.bind="title" type.bind="type" part="button ${color} ${size}" click.trigger="innerCallback()"><slot></slot></button>
+<button
+    disabled.bind="isDisabled"
+    class="button ${color} ${size} variant-${variant} ${loading ? 'is-loading' : ''} ${fullWidth ? 'is-full-width' : ''}"
+    title.bind="title"
+    type.bind="type"
+    aria-busy.bind="loading ? 'true' : null"
+    part="button ${color} ${size}"
+    click.trigger="innerCallback()"
+><span if.bind="loading" class="spinner" part="spinner" aria-hidden="true"></span><slot></slot></button>

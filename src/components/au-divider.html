@@ -1,1 +1,8 @@
-<div class="divider" part="divider"></div>
+<div
+    class="divider ${orientation} ${label ? 'has-label' : ''}"
+    part="divider"
+    role="separator"
+    aria-orientation.bind="orientation === 'vertical' ? 'vertical' : null"
+>
+    <span if.bind="label" class="label" part="label">${label}</span>
+</div>

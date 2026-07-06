@@ -1,0 +1,53 @@
+:host {
+    --group-legend-color: var(--color-mediumGrey, #495057);
+    --group-error-color: var(--color-error, #dc3545);
+    --group-helper-color: var(--color-mediumGrey, #6c757d);
+    display: block;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm, 0.5rem);
+    border: none;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+}
+
+.legend {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--group-legend-color);
+    padding: 0;
+    margin-bottom: var(--spacing-xs, 0.25rem);
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm, 0.5rem);
+}
+
+.horizontal .items {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--spacing-md, 1rem);
+}
+
+.is-disabled .legend {
+    opacity: 0.6;
+}
+
+.message {
+    font-size: 0.8125rem;
+    margin: 0;
+}
+
+.message.helper {
+    color: var(--group-helper-color);
+}
+
+.message.error {
+    color: var(--group-error-color);
+}

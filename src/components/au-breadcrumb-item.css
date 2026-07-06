@@ -1,0 +1,40 @@
+:host {
+    display: inline-flex;
+    --breadcrumb-item-color: var(--au-cardigan-breadcrumb-item-color, var(--color-mediumGrey, #495057));
+    --breadcrumb-link-color: var(--au-cardigan-breadcrumb-link-color, var(--color-primary, #0466c8));
+    --breadcrumb-current-color: var(--au-cardigan-breadcrumb-current-color, var(--color-dark, #212529));
+    --breadcrumb-separator-color: var(--au-cardigan-breadcrumb-separator-color, var(--color-lightGrey, #ced4da));
+}
+
+.item {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs, 0.25rem);
+    list-style: none;
+    color: var(--breadcrumb-item-color);
+}
+
+.link {
+    color: var(--breadcrumb-link-color);
+    text-decoration: none;
+}
+
+.link:hover,
+.link:focus-visible {
+    text-decoration: underline;
+}
+
+.label {
+    color: var(--breadcrumb-item-color);
+}
+
+.link[aria-current='page'],
+.label[aria-current='page'] {
+    color: var(--breadcrumb-current-color);
+    font-weight: 600;
+}
+
+.separator {
+    color: var(--breadcrumb-separator-color);
+    user-select: none;
+}

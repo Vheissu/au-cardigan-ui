@@ -1,13 +1,70 @@
 :host {
-  display: block;
-  --divider-width: 100%;
-  --divider-color: var(--color-lightGrey);
-  --divider-spacing: 0.5rem 0;
+    display: block;
+    /*
+     * Backward compatible: --divider-width, --divider-color and
+     * --divider-spacing keep working when set from outside. Each one can
+     * now also be themed globally via the --au-cardigan-divider-* vars.
+     */
+    --divider-width: var(--au-cardigan-divider-width, 100%);
+    --divider-color: var(--au-cardigan-divider-color, var(--color-lightGrey));
+    --divider-spacing: var(--au-cardigan-divider-spacing, 0.5rem 0);
+    --divider-thickness: var(--au-cardigan-divider-thickness, 1px);
+    --divider-length: var(--au-cardigan-divider-length, 100%);
+    --divider-label-color: var(--au-cardigan-divider-label-color, var(--color-mediumGrey, #495057));
+    --divider-label-gap: var(--au-cardigan-divider-label-gap, var(--spacing-sm, 0.5rem));
+}
+
+:host([orientation='vertical']) {
+    display: inline-flex;
+    align-self: stretch;
 }
 
 .divider {
-  width: var(--divider-width);
-  height: 1px;
-  background: var(--divider-color);
-  margin: var(--divider-spacing);
+    width: var(--divider-width);
+    height: var(--divider-thickness);
+    background: var(--divider-color);
+    margin: var(--divider-spacing);
+}
+
+.divider.vertical {
+    display: inline-block;
+    width: var(--divider-thickness);
+    height: var(--divider-length);
+    min-height: 1em;
+    margin: var(--au-cardigan-divider-spacing-vertical, 0 0.5rem);
+}
+
+.divider.has-label {
+    display: flex;
+    align-items: center;
+    gap: var(--divider-label-gap);
+    height: auto;
+    background: none;
+}
+
+.divider.has-label::before,
+.divider.has-label::after {
+    content: '';
+    flex: 1;
+    height: var(--divider-thickness);
+    background: var(--divider-color);
+}
+
+.divider.vertical.has-label {
+    flex-direction: column;
+    width: auto;
+    min-height: 4rem;
+}
+
+.divider.vertical.has-label::before,
+.divider.vertical.has-label::after {
+    width: var(--divider-thickness);
+    height: auto;
+}
+
+.label {
+    color: var(--divider-label-color);
+    font-family: var(--font-family-base);
+    font-size: 0.875rem;
+    white-space: nowrap;
 }

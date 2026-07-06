@@ -71,6 +71,11 @@ export class AuCheckboxCustomElement implements ICustomElementViewModel {
     public handleChange(event: Event) {
         const target = event.target as HTMLInputElement | null;
         this.checked = !!target?.checked;
+        this.hostElement.dispatchEvent(new CustomEvent('au-checkbox-change', {
+            detail: { checked: this.checked, value: this.value },
+            bubbles: true,
+            composed: true
+        }));
     }
 
     private syncIndeterminate() {

@@ -1,8 +1,9 @@
 :host {
-    --button-color: #333;
-    --button-font-family: Arial, Helvetica, sans-serif;
+    --button-color: var(--color-text, #333);
+    --button-font-family: var(--font-family-base);
     --button-font-size: 1rem;
     --button-text-transform: none;
+    --button-radius: var(--radius-medium);
     --button-primary-background: var(--color-primary);
     --button-primary-color: var(--color-white);
     --button-secondary-background: var(--color-secondary);
@@ -25,86 +26,131 @@
     --button-medium-padding: 0.8rem 1rem;
     --button-large-padding: 1rem 1.2rem;
     --button-xlarge-padding: 1.6rem 1.6rem;
+
+    display: inline-block;
+}
+
+:host([hidden]) {
+    display: none;
 }
 
 .button {
-    background: none;
-    border: none;
-    color: var(--button-color);
+    --_bg: transparent;
+    --_fg: var(--button-color);
+
+    align-items: center;
+    background: var(--_bg);
+    border: 1px solid transparent;
+    border-radius: var(--button-radius);
+    color: var(--_fg);
     display: inline-flex;
     font-family: var(--button-font-family);
-    font-size: 1rem;
+    font-size: var(--button-font-size);
+    gap: 0.5em;
+    justify-content: center;
+    line-height: 1.2;
     margin: 0;
-    outline: none;
     text-decoration: none;
-    text-transform: none;
+    text-transform: var(--button-text-transform);
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.button:hover {
+.button:hover:not(:disabled) {
     cursor: pointer;
 }
 
-.primary {
-    background: var(--button-primary-background);
-    color: var(--button-primary-color);
+.button:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
 }
 
-.primary:hover {
-    background: var(--button-primary-background-hover, var(--color-blue-alt));
+.button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.is-full-width {
+    display: flex;
+    width: 100%;
+}
+
+:host(:has(.is-full-width)) {
+    display: block;
+}
+
+/* Color tokens: each color class only sets the private props;
+   the variants below decide how they are applied. */
+.primary {
+    --_bg: var(--button-primary-background);
+    --_fg: var(--button-primary-color);
+    --_bg-hover: var(--button-primary-background-hover, var(--color-blue-alt));
 }
 
 .secondary {
-    background: var(--button-secondary-background);
-    color: var(--button-secondary-color);
+    --_bg: var(--button-secondary-background);
+    --_fg: var(--button-secondary-color);
+    --_bg-hover: var(--button-secondary-background-hover, var(--button-secondary-background));
 }
 
-.secondary:hover {
-    background: var(--button-secondary-background-hover, var(--button-secondary-background));
+.bright {
+    --_bg: var(--button-bright-background);
+    --_fg: var(--button-bright-color);
+    --_bg-hover: var(--button-bright-background-hover, var(--button-bright-background));
+}
+
+.purple {
+    --_bg: var(--button-purple-background);
+    --_fg: var(--button-purple-color);
+    --_bg-hover: var(--button-purple-background-hover, var(--button-purple-background));
 }
 
 .success {
-    background: var(--button-success-background);
-    color: var(--button-success-color);
-}
-
-.success:hover {
-    background: var(--button-success-background-hover, var(--button-success-background));
+    --_bg: var(--button-success-background);
+    --_fg: var(--button-success-color);
+    --_bg-hover: var(--button-success-background-hover, var(--button-success-background));
 }
 
 .error {
-    background: var(--button-error-background);
-    color: var(--button-error-color);
-}
-
-.error:hover {
-    background: var(--button-error-background-hover, var(--button-error-background));
+    --_bg: var(--button-error-background);
+    --_fg: var(--button-error-color);
+    --_bg-hover: var(--button-error-background-hover, var(--button-error-background));
 }
 
 .info {
-    background: var(--button-info-background);
-    color: var(--button-info-color);
-}
-
-.info:hover {
-    background: var(--button-info-background-hover, var(--button-info-background));
+    --_bg: var(--button-info-background);
+    --_fg: var(--button-info-color);
+    --_bg-hover: var(--button-info-background-hover, var(--button-info-background));
 }
 
 .light {
-    background: var(--button-light-background);
-    color: var(--button-light-color);
-}
-
-.light:hover {
-    background: var(--button-light-background-hover, var(--button-light-background));
+    --_bg: var(--button-light-background);
+    --_fg: var(--button-light-color);
+    --_bg-hover: var(--button-light-background-hover, var(--button-light-background));
 }
 
 .dark {
-    background: var(--button-dark-background);
-    color: var(--button-dark-color);
+    --_bg: var(--button-dark-background);
+    --_fg: var(--button-dark-color);
+    --_bg-hover: var(--button-dark-background-hover, var(--button-dark-background));
 }
 
-.dark:hover {
-    background: var(--button-dark-background-hover, var(--button-dark-background));
+.variant-solid:hover:not(:disabled) {
+    background: var(--_bg-hover, var(--_bg));
+}
+
+.variant-outline,
+.variant-ghost {
+    background: transparent;
+    color: var(--_bg, var(--button-color));
+}
+
+.variant-outline {
+    border-color: var(--_bg, currentColor);
+}
+
+.variant-outline:hover:not(:disabled),
+.variant-ghost:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--_bg, currentColor) 12%, transparent);
 }
 
 .small {
@@ -121,4 +167,30 @@
 
 .xlarge {
     padding: var(--button-xlarge-padding);
+}
+
+.spinner {
+    animation: au-button-spin 0.7s linear infinite;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    border-top-color: transparent;
+    box-sizing: border-box;
+    height: 1em;
+    width: 1em;
+}
+
+@keyframes au-button-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .button {
+        transition: none;
+    }
+
+    .spinner {
+        animation-duration: 1.5s;
+    }
 }

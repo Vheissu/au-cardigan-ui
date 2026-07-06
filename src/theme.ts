@@ -12,7 +12,12 @@ export type CardiganColorToken =
     | 'lightGrey'
     | 'mediumGrey'
     | 'skyBlue'
-    | 'blueAlt';
+    | 'blueAlt'
+    | 'background'
+    | 'surface'
+    | 'text'
+    | 'textMuted'
+    | 'border';
 
 export interface CardiganThemeOptions {
     colors?: Partial<Record<CardiganColorToken, string>>;

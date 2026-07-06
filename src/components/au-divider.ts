@@ -1,13 +1,16 @@
 import '../polyfills';
-import { customElement, ICustomElementViewModel, shadowCSS } from '@aurelia/runtime-html';
+import { bindable, customElement, ICustomElementViewModel, shadowCSS } from '@aurelia/runtime-html';
 import SharedStyles from '../variables.css';
 import styles from './au-divider.css';
 import template from './au-divider.html';
 
 @customElement({
-  name: 'au-divider',
-  template,
-  dependencies: [shadowCSS(SharedStyles, styles)],
-  shadowOptions: { mode: 'open' }
+    name: 'au-divider',
+    template,
+    dependencies: [shadowCSS(SharedStyles, styles)],
+    shadowOptions: { mode: 'open' }
 })
-export class AuDividerCustomElement implements ICustomElementViewModel {}
+export class AuDividerCustomElement implements ICustomElementViewModel {
+    @bindable public orientation: 'horizontal' | 'vertical' = 'horizontal';
+    @bindable public label: string = '';
+}

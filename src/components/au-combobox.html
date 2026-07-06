@@ -1,0 +1,48 @@
+<div class="field ${disabled ? 'is-disabled' : ''} ${error ? 'has-error' : ''}">
+  <label if.bind="label" class="label" for.bind="controlId" part="label">${label}</label>
+  <div class="control" part="control">
+    <input
+      id.bind="controlId"
+      class="input"
+      part="input"
+      type="text"
+      role="combobox"
+      autocomplete="off"
+      spellcheck="false"
+      placeholder.bind="placeholder"
+      disabled.bind="disabled"
+      aria-expanded="${open}"
+      aria-haspopup="listbox"
+      aria-controls.bind="listboxId"
+      aria-autocomplete="list"
+      aria-activedescendant.bind="activeDescendant"
+      aria-invalid.bind="!!error"
+      aria-describedby.bind="describedBy"
+      value.to-view="inputText"
+      input.trigger="handleInput($event)"
+      keydown.trigger="handleKeydown($event)"
+      blur.trigger="handleBlur()"
+    />
+    <ul if.bind="open" id.bind="listboxId" class="listbox" role="listbox" part="listbox">
+      <li
+        repeat.for="option of filteredOptions"
+        id="${controlId}-option-${$index}"
+        role="option"
+        class="option ${$index === highlightedIndex ? 'is-highlighted' : ''} ${option.value === value ? 'is-selected' : ''}"
+        part="option"
+        aria-selected="${option.value === value}"
+        mousedown.trigger="handleOptionMouseDown($event)"
+        click.trigger="selectOption(option)"
+      >${option.label}</li>
+      <li if.bind="!filteredOptions.length" class="no-results" part="no-results" aria-disabled="true">
+        ${noResultsText}
+      </li>
+    </ul>
+  </div>
+  <p if.bind="error" id.bind="errorId" class="message error" part="message error">
+    ${error}
+  </p>
+  <p else.if.bind="helper" id.bind="helperId" class="message helper" part="message helper">
+    ${helper}
+  </p>
+</div>

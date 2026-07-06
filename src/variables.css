@@ -14,6 +14,12 @@
     --color-skyBlue: var(--au-cardigan-color-skyBlue, #ADE8F4);
     --color-blue-alt: var(--au-cardigan-color-blueAlt, #2744F2);
 
+    --color-background: var(--au-cardigan-color-background, #FFFFFF);
+    --color-surface: var(--au-cardigan-color-surface, #F8F9FA);
+    --color-text: var(--au-cardigan-color-text, #212529);
+    --color-textMuted: var(--au-cardigan-color-textMuted, #6C757D);
+    --color-border: var(--au-cardigan-color-border, #CED4DA);
+
     --radius-small: var(--au-cardigan-radius-small, 0.25rem);
     --radius-medium: var(--au-cardigan-radius-medium, 0.5rem);
     --radius-large: var(--au-cardigan-radius-large, 0.75rem);

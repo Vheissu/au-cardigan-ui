@@ -1,0 +1,28 @@
+<div class="chart" part="chart">
+    <div class="canvas-wrap" part="canvas-wrap" style="max-width: ${chartWidth}px">
+        <canvas ref="canvasElement" part="canvas" role="img" aria-label.bind="computedAriaLabel"></canvas>
+        <div if.bind="centerLabel || centerValue" class="center" part="center" aria-hidden="true">
+            <span if.bind="centerValue" class="center-value" part="center-value">${centerValue}</span>
+            <span if.bind="centerLabel" class="center-label" part="center-label">${centerLabel}</span>
+        </div>
+    </div>
+    <table class="sr-only" part="data-table">
+        <caption if.bind="title">${title}</caption>
+        <thead>
+            <tr>
+                <th repeat.for="header of tableHeaders" scope="col">${header}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr repeat.for="row of tableRows">
+                <td repeat.for="cell of row">${cell}</td>
+            </tr>
+        </tbody>
+    </table>
+    <ul if.bind="showLegend" class="legend" part="legend">
+        <li repeat.for="item of legendItems" class="legend-item" part="legend-item">
+            <span class="swatch" part="legend-swatch" style="background-color: ${item.color}" aria-hidden="true"></span>
+            <span class="legend-label" part="legend-label">${item.label}</span>
+        </li>
+    </ul>
+</div>

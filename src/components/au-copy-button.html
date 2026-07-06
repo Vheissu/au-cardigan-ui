@@ -1,0 +1,13 @@
+<div class="copy ${copied ? 'is-copied' : ''} ${disabled ? 'is-disabled' : ''}">
+  <button
+    type="button"
+    class="button"
+    part="button"
+    disabled.bind="disabled"
+    data-copied.bind="copied ? 'true' : null"
+    click.trigger="handleClick()"
+  >
+    <span class="text" part="text">${copied ? copiedLabel : label}</span>
+  </button>
+  <span class="status" role="status" aria-live="polite" part="status">${copied ? copiedLabel : ''}</span>
+</div>

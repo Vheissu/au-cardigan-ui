@@ -1,0 +1,24 @@
+<div class="animated-image ${playing ? 'is-playing' : 'is-paused'}" part="container">
+  <img
+    ref="imgElement"
+    class="media"
+    part="image"
+    src.bind="src"
+    alt.bind="alt"
+    width.bind="width & attr"
+    height.bind="height & attr"
+  />
+  <canvas ref="canvasElement" class="freeze-frame" part="canvas" aria-hidden="true"></canvas>
+  <button
+    if.bind="controls"
+    type="button"
+    class="toggle"
+    part="button"
+    aria-label="${playing ? 'Pause animation' : 'Play animation'}"
+    aria-pressed="${playing}"
+    click.trigger="toggle()"
+  >
+    <span class="icon icon-pause" if.bind="playing" aria-hidden="true"></span>
+    <span class="icon icon-play" else aria-hidden="true"></span>
+  </button>
+</div>

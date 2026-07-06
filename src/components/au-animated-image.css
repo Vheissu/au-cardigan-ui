@@ -1,0 +1,83 @@
+:host {
+    --animated-image-button-size: 2.25rem;
+    --animated-image-button-background: rgba(33, 37, 41, 0.65);
+    --animated-image-button-color: var(--color-white, #ffffff);
+    --animated-image-focus-ring: rgba(4, 102, 200, 0.55);
+    display: inline-block;
+    line-height: 0;
+}
+
+.animated-image {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: var(--radius-small, 0.25rem);
+}
+
+.media {
+    display: block;
+    max-width: 100%;
+}
+
+.is-paused .media {
+    visibility: hidden;
+}
+
+.freeze-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    pointer-events: none;
+}
+
+.is-paused .freeze-frame {
+    display: block;
+}
+
+.toggle {
+    position: absolute;
+    bottom: var(--spacing-sm, 0.5rem);
+    left: var(--spacing-sm, 0.5rem);
+    width: var(--animated-image-button-size);
+    height: var(--animated-image-button-size);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--animated-image-button-background);
+    color: var(--animated-image-button-color);
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.toggle:hover {
+    background: rgba(33, 37, 41, 0.85);
+}
+
+.toggle:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem var(--animated-image-focus-ring);
+}
+
+.icon {
+    display: inline-block;
+}
+
+.icon-play {
+    width: 0;
+    height: 0;
+    margin-left: 0.15rem;
+    border-top: 0.4rem solid transparent;
+    border-bottom: 0.4rem solid transparent;
+    border-left: 0.65rem solid currentColor;
+}
+
+.icon-pause {
+    width: 0.65rem;
+    height: 0.8rem;
+    border-left: 0.22rem solid currentColor;
+    border-right: 0.22rem solid currentColor;
+}

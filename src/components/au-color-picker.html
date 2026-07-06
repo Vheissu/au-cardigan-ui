@@ -1,0 +1,51 @@
+<div class="field ${disabled ? 'is-disabled' : ''} ${error ? 'has-error' : ''}">
+  <label if.bind="label" class="label" for.bind="controlId" part="label">${label}</label>
+  <div class="controls" part="controls">
+    <span class="trigger" part="trigger">
+      <input
+        id.bind="controlId"
+        type="color"
+        class="native-color"
+        part="color-input"
+        disabled.bind="disabled"
+        aria-invalid.bind="!!error"
+        aria-describedby.bind="describedBy"
+        value.to-view="value"
+        change.trigger="handleColorChange($event)"
+        input.trigger="handleColorChange($event)"
+      />
+      <span class="preview" style="background-color: ${value}" aria-hidden="true"></span>
+    </span>
+    <input
+      if.bind="showInput"
+      type="text"
+      class="hex-input"
+      part="hex-input"
+      aria-label="Hex color value"
+      spellcheck="false"
+      autocomplete="off"
+      disabled.bind="disabled"
+      value.to-view="value"
+      change.trigger="handleHexChange($event)"
+    />
+  </div>
+  <div if.bind="swatches && swatches.length" class="swatches" part="swatches" role="group" aria-label="Preset colors">
+    <button
+      repeat.for="swatch of swatches"
+      type="button"
+      class="swatch ${value && value.toLowerCase() === swatch.toLowerCase() ? 'is-selected' : ''}"
+      part="swatch"
+      style="background-color: ${swatch}"
+      aria-label="${swatch}"
+      aria-pressed="${value && value.toLowerCase() === swatch.toLowerCase() ? 'true' : 'false'}"
+      disabled.bind="disabled"
+      click.trigger="selectSwatch(swatch)"
+    ></button>
+  </div>
+  <p if.bind="error" id.bind="errorId" class="message error" part="message error">
+    ${error}
+  </p>
+  <p else.if.bind="helper" id.bind="helperId" class="message helper" part="message helper">
+    ${helper}
+  </p>
+</div>

@@ -1,0 +1,17 @@
+<div if.bind="visible" class="callout ${variant}" part="callout ${variant}">
+    <slot name="icon" part="icon"></slot>
+    <div class="content" part="content">
+        <p if.bind="heading" class="heading" part="heading">${heading}</p>
+        <div class="body" part="body">
+            <slot></slot>
+        </div>
+    </div>
+    <button
+        if.bind="dismissible"
+        type="button"
+        class="dismiss"
+        part="dismiss"
+        aria-label="Dismiss"
+        click.trigger="dismiss()"
+    >&times;</button>
+</div>

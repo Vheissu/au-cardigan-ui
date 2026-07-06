@@ -1,0 +1,136 @@
+:host {
+    --picker-border-color: var(--color-lightGrey, #ced4da);
+    --picker-background: var(--color-white, #ffffff);
+    --picker-focus-border-color: var(--color-skyBlue, #86b7fe);
+    --picker-focus-shadow: rgba(13, 110, 253, 0.25);
+    --picker-error-color: var(--color-error, #dc3545);
+    --picker-helper-color: var(--color-mediumGrey, #6c757d);
+    --picker-swatch-size: 1.5rem;
+    display: block;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs, 0.25rem);
+}
+
+.label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-mediumGrey, #495057);
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm, 0.5rem);
+}
+
+.trigger {
+    position: relative;
+    display: inline-flex;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 1px solid var(--picker-border-color);
+    border-radius: var(--radius-small, 0.25rem);
+    overflow: hidden;
+    flex: none;
+}
+
+.native-color {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+}
+
+.trigger:focus-within {
+    border-color: var(--picker-focus-border-color);
+    box-shadow: 0 0 0 0.2rem var(--picker-focus-shadow);
+}
+
+.preview {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.hex-input {
+    border: 1px solid var(--picker-border-color);
+    border-radius: var(--radius-small, 0.25rem);
+    background: var(--picker-background);
+    color: var(--color-dark, #212529);
+    font-family: inherit;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    padding: 0.375rem 0.5rem;
+    width: 7rem;
+}
+
+.hex-input:focus {
+    outline: none;
+    border-color: var(--picker-focus-border-color);
+    box-shadow: 0 0 0 0.2rem var(--picker-focus-shadow);
+}
+
+.swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs, 0.25rem);
+}
+
+.swatch {
+    width: var(--picker-swatch-size);
+    height: var(--picker-swatch-size);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: var(--radius-small, 0.25rem);
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.swatch:hover {
+    transform: scale(1.08);
+}
+
+.swatch:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem var(--picker-focus-shadow);
+}
+
+.swatch.is-selected {
+    box-shadow: 0 0 0 2px var(--picker-background), 0 0 0 4px var(--color-primary, #0466c8);
+}
+
+.is-disabled .controls,
+.is-disabled .swatches {
+    opacity: 0.6;
+}
+
+.is-disabled .swatch,
+.is-disabled .native-color {
+    cursor: not-allowed;
+}
+
+.message {
+    font-size: 0.8125rem;
+    margin: 0;
+}
+
+.message.helper {
+    color: var(--picker-helper-color);
+}
+
+.message.error {
+    color: var(--picker-error-color);
+}
+
+.has-error .hex-input,
+.has-error .trigger {
+    border-color: var(--picker-error-color);
+}

@@ -1,0 +1,49 @@
+<div
+  class="carousel"
+  part="carousel"
+  role="region"
+  aria-roledescription="carousel"
+  tabindex="0"
+  keydown.trigger="handleKeydown($event)"
+  mouseenter.trigger="handleMouseEnter()"
+  mouseleave.trigger="handleMouseLeave()"
+  focusin.trigger="handleFocusIn()"
+  focusout.trigger="handleFocusOut()"
+>
+  <div class="viewport" part="viewport">
+    <div class="track" part="track" style.bind="trackStyle">
+      <slot></slot>
+    </div>
+  </div>
+  <button
+    if.bind="controls && slideCount > 1"
+    type="button"
+    class="control control-prev"
+    part="control control-prev"
+    aria-label="Previous slide"
+    click.trigger="previous()"
+  >
+    <span class="chevron chevron-left" aria-hidden="true"></span>
+  </button>
+  <button
+    if.bind="controls && slideCount > 1"
+    type="button"
+    class="control control-next"
+    part="control control-next"
+    aria-label="Next slide"
+    click.trigger="next()"
+  >
+    <span class="chevron chevron-right" aria-hidden="true"></span>
+  </button>
+  <div if.bind="indicators && slideCount > 1" class="indicators" part="indicators">
+    <button
+      repeat.for="item of items"
+      type="button"
+      class="indicator ${$index === activeIndex ? 'is-active' : ''}"
+      part="indicator"
+      aria-label="Go to slide ${$index + 1}"
+      aria-current="${$index === activeIndex}"
+      click.trigger="goTo($index)"
+    ></button>
+  </div>
+</div>

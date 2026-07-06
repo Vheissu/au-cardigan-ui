@@ -1,0 +1,16 @@
+<fieldset
+  class="field group ${orientation} ${disabled ? 'is-disabled' : ''} ${error ? 'has-error' : ''}"
+  part="group"
+  aria-describedby.bind="describedBy"
+>
+  <legend if.bind="label" class="legend" part="legend">${label}</legend>
+  <div class="items" part="items">
+    <slot></slot>
+  </div>
+  <p if.bind="error" id.bind="errorId" class="message error" part="message error">
+    ${error}
+  </p>
+  <p else.if.bind="helper" id.bind="helperId" class="message helper" part="message helper">
+    ${helper}
+  </p>
+</fieldset>

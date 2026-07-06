@@ -1,5 +1,6 @@
 import { ComponentEntries, ComponentRegistry, DefaultComponents } from './components';
-import { applyTheme, CardiganThemeOptions } from './theme';
+import { applyTheme } from './theme';
+import { CardiganTheme, resolveTheme } from './themes';
 import { applyGlobalStyles } from './global-styles';
 import { DI, IContainer, IRegistry } from '@aurelia/kernel';
 
@@ -7,7 +8,7 @@ type ComponentSelector = string | IRegistry;
 
 interface InternalConfigurationOptions {
     components: IRegistry[];
-    theme?: CardiganThemeOptions;
+    theme?: CardiganTheme;
     globalStyles?: boolean | string;
 }
 
@@ -15,7 +16,7 @@ export interface CardiganConfigurationOptions {
     include?: ComponentSelector[];
     exclude?: string[];
     add?: ComponentSelector[];
-    theme?: CardiganThemeOptions;
+    theme?: CardiganTheme;
     globalStyles?: boolean | string;
 }
 
@@ -24,7 +25,7 @@ function createConfiguration(options: InternalConfigurationOptions) {
     return {
         register(container: IContainer): IContainer {
             if (theme) {
-                applyTheme(theme);
+                applyTheme(resolveTheme(theme));
             }
             if (globalStyles) {
                 const extraCss = typeof globalStyles === 'string' ? globalStyles : undefined;
@@ -100,7 +101,7 @@ export const CardiganConfiguration = Object.assign(cardiganConfiguration, {
             include
         });
     },
-    withTheme(theme: CardiganThemeOptions, options: Omit<CardiganConfigurationOptions, 'theme'> = {}) {
+    withTheme(theme: CardiganTheme, options: Omit<CardiganConfigurationOptions, 'theme'> = {}) {
         return CardiganConfiguration.from({
             ...options,
             theme

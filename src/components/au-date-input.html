@@ -1,0 +1,86 @@
+<div
+  class="field ${disabled ? 'is-disabled' : ''} ${(error || internalError) ? 'has-error' : ''}"
+  keydown.trigger="handleFieldKeydown($event)"
+>
+  <span if.bind="label" class="label" id.bind="labelId" part="label">
+    ${label}
+    <span if.bind="required" class="required-indicator" part="required-indicator">*</span>
+  </span>
+  <div class="control" part="control">
+    <div class="segments" part="segments" role="group" aria-labelledby.bind="label ? labelId : null">
+      <template repeat.for="seg of segmentLayout">
+        <input
+          type="text"
+          class="segment"
+          data-type="${seg.type}"
+          part="segment ${seg.type}"
+          inputmode="numeric"
+          autocomplete="off"
+          placeholder="${seg.placeholder}"
+          maxlength="${seg.size}"
+          size="${seg.size}"
+          aria-label="${seg.ariaLabel}"
+          aria-invalid="${(error || internalError) ? 'true' : 'false'}"
+          aria-describedby.bind="describedBy"
+          aria-required.bind="required ? 'true' : null"
+          disabled.bind="disabled"
+          input.trigger="handleSegmentInput($event, seg.type)"
+          keydown.trigger="handleSegmentKeydown($event, seg.type)"
+        />
+        <span if.bind="seg.literal" class="separator" aria-hidden="true">${seg.literal}</span>
+      </template>
+    </div>
+    <button
+      if.bind="showCalendar"
+      type="button"
+      class="calendar-toggle"
+      part="calendar-toggle"
+      aria-haspopup="dialog"
+      aria-expanded="${calendarOpen}"
+      aria-label="Choose date from calendar"
+      disabled.bind="disabled"
+      click.trigger="toggleCalendar()"
+    >
+      <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <rect x="1.5" y="2.5" width="13" height="12" rx="1.5"></rect>
+        <line x1="1.5" y1="6" x2="14.5" y2="6"></line>
+        <line x1="5" y1="1" x2="5" y2="4"></line>
+        <line x1="11" y1="1" x2="11" y2="4"></line>
+      </svg>
+    </button>
+  </div>
+  <div if.bind="calendarOpen" class="calendar" part="calendar" role="dialog" aria-modal="false" aria-label="Calendar">
+    <div class="calendar-header" part="calendar-header">
+      <button type="button" class="calendar-nav" part="calendar-nav" aria-label="Previous month" click.trigger="previousMonth()">&#8249;</button>
+      <span class="calendar-caption" part="calendar-caption" aria-live="polite">${calendarCaption}</span>
+      <button type="button" class="calendar-nav" part="calendar-nav" aria-label="Next month" click.trigger="nextMonth()">&#8250;</button>
+    </div>
+    <div class="calendar-weekdays" part="calendar-weekdays">
+      <span repeat.for="name of weekdayNames" class="calendar-weekday">${name}</span>
+    </div>
+    <div class="calendar-week" repeat.for="week of calendarWeeks">
+      <template repeat.for="cell of week">
+        <button
+          if.bind="cell"
+          type="button"
+          class="calendar-day ${cell.selected ? 'is-selected' : ''} ${cell.today ? 'is-today' : ''}"
+          part="calendar-day"
+          aria-selected="${cell.selected}"
+          aria-label="${cell.iso}"
+          disabled.bind="cell.disabled"
+          click.trigger="selectDay(cell)"
+        >${cell.day}</button>
+        <span else class="calendar-day is-empty" aria-hidden="true"></span>
+      </template>
+    </div>
+  </div>
+  <p if.bind="error" id.bind="errorId" class="message error" part="message error">
+    ${error}
+  </p>
+  <p if.bind="internalError" id.bind="internalErrorId" class="message error internal" part="message validation">
+    ${internalError}
+  </p>
+  <p if.bind="helper && !error && !internalError" id.bind="helperId" class="message helper" part="message helper">
+    ${helper}
+  </p>
+</div>

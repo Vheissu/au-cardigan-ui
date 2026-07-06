@@ -1,0 +1,129 @@
+:host {
+    --carousel-control-size: 2.5rem;
+    --carousel-control-background: rgba(33, 37, 41, 0.55);
+    --carousel-control-color: var(--color-white, #ffffff);
+    --carousel-indicator-color: rgba(255, 255, 255, 0.55);
+    --carousel-indicator-active-color: var(--color-white, #ffffff);
+    --carousel-focus-ring: rgba(4, 102, 200, 0.55);
+    display: block;
+}
+
+.carousel {
+    position: relative;
+    font-family: var(--font-family-base, system-ui, sans-serif);
+}
+
+.carousel:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem var(--carousel-focus-ring);
+    border-radius: var(--radius-medium, 0.5rem);
+}
+
+.viewport {
+    overflow: hidden;
+    border-radius: var(--radius-medium, 0.5rem);
+}
+
+.track {
+    display: flex;
+    width: 100%;
+    transition: transform 0.35s ease;
+}
+
+::slotted(au-carousel-item) {
+    flex: 0 0 100%;
+    min-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .track {
+        transition: none;
+    }
+}
+
+.control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--carousel-control-size);
+    height: var(--carousel-control-size);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--carousel-control-background);
+    color: var(--carousel-control-color);
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.control:hover {
+    background: rgba(33, 37, 41, 0.8);
+}
+
+.control:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem var(--carousel-focus-ring);
+}
+
+.control-prev {
+    left: var(--spacing-sm, 0.5rem);
+}
+
+.control-next {
+    right: var(--spacing-sm, 0.5rem);
+}
+
+.chevron {
+    display: inline-block;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+}
+
+.chevron-left {
+    transform: rotate(-135deg);
+    margin-left: 0.2rem;
+}
+
+.chevron-right {
+    transform: rotate(45deg);
+    margin-right: 0.2rem;
+}
+
+.indicators {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: var(--spacing-sm, 0.5rem);
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xs, 0.25rem);
+}
+
+.indicator {
+    width: 0.6rem;
+    height: 0.6rem;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--carousel-indicator-color);
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.indicator:hover {
+    transform: scale(1.2);
+}
+
+.indicator:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 0.15rem var(--carousel-focus-ring);
+}
+
+.indicator.is-active {
+    background: var(--carousel-indicator-active-color);
+}

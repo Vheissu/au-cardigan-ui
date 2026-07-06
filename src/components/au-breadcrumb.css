@@ -1,0 +1,19 @@
+:host {
+    display: block;
+    --breadcrumb-gap: var(--au-cardigan-breadcrumb-gap, var(--spacing-xs, 0.25rem));
+}
+
+.breadcrumb {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--breadcrumb-gap);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
