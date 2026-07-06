@@ -4,41 +4,30 @@ import type { StorybookConfig } from 'storybook/internal/types';
 const insideSrc = /[\\/]src[\\/]/;
 
 /**
- * Cardigan components import their templates as strings
- * (`import template from './au-x.html'`), which Vite does not
- * understand natively. Convert src html files into string modules.
+ * Cardigan components import templates and styles as strings
+ * (`import template from './au-x.html'` feeding @customElement, and
+ * css strings feeding shadowCSS()). Vite only exposes file text via
+ * the `?raw` / `?inline` queries, so rewrite bare imports coming from
+ * library source files. Using the queries (rather than a transform)
+ * also keeps `storybook build` from parsing the templates as HTML pages.
  */
-function cardiganTemplates(): Plugin {
+function cardiganStringImports(): Plugin {
     return {
-        name: 'cardigan-templates',
-        enforce: 'pre',
-        transform(code, id) {
-            if (id.endsWith('.html') && insideSrc.test(id)) {
-                return {
-                    code: `export default ${JSON.stringify(code)};`,
-                    map: null,
-                };
-            }
-        },
-    };
-}
-
-/**
- * Cardigan imports css files as strings and feeds them to shadowCSS().
- * Vite 5+ only exposes css text via the `?inline` query, so rewrite
- * bare css imports coming from library source files.
- */
-function cardiganInlineCss(): Plugin {
-    return {
-        name: 'cardigan-inline-css',
+        name: 'cardigan-string-imports',
         enforce: 'pre',
         async resolveId(source, importer) {
-            if (!importer || !source.endsWith('.css') || source.includes('?') || !insideSrc.test(importer)) {
+            if (!importer || source.includes('?') || !insideSrc.test(importer)) {
+                return null;
+            }
+            const query = source.endsWith('.html') ? '?raw'
+                : source.endsWith('.css') ? '?inline'
+                : null;
+            if (!query) {
                 return null;
             }
             const resolved = await this.resolve(source, importer, { skipSelf: true });
             if (resolved && !resolved.id.includes('?')) {
-                return `${resolved.id}?inline`;
+                return `${resolved.id}${query}`;
             }
             return null;
         },
@@ -56,7 +45,7 @@ const config: StorybookConfig & { viteFinal?: (config: InlineConfig) => InlineCo
         builder: '@storybook/builder-vite',
     },
     viteFinal: async (viteConfig) => mergeConfig(viteConfig, {
-        plugins: [cardiganTemplates(), cardiganInlineCss()],
+        plugins: [cardiganStringImports()],
     }),
 };
 
